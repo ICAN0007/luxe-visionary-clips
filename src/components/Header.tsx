@@ -1,4 +1,5 @@
 import { Search, Monitor } from "lucide-react";
+import { Link } from "react-router-dom";
 
 interface HeaderProps {
   searchQuery: string;
@@ -20,12 +21,14 @@ const Header = ({ searchQuery, onSearchChange }: HeaderProps) => {
             </p>
           </div>
           <nav className="hidden md:flex items-center gap-8">
-            {["VIDEOS", "BEST OF", "COMMUNITY"].map((item) => (
-              <a
-                key={item}
-                href="#"
-                className="text-sm text-muted-foreground hover:text-primary transition-colors font-medium tracking-wide"
-              >
+            <Link to="/" className="text-sm text-muted-foreground hover:text-primary transition-colors font-medium tracking-wide">
+              VIDEOS
+            </Link>
+            <Link to="/models" className="text-sm text-muted-foreground hover:text-primary transition-colors font-medium tracking-wide">
+              MODELS
+            </Link>
+            {["BEST OF", "COMMUNITY"].map((item) => (
+              <a key={item} href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors font-medium tracking-wide">
                 {item}
               </a>
             ))}
