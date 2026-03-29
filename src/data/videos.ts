@@ -30,6 +30,7 @@ export const videos: Video[] = [
   { id: "v18", title: "Crimson Elegance", categories: ["Indian"], tags: ["#Luxury", "#Travel"], src: "https://files.catbox.moe/py6en3.mp4", thumb: "https://files.catbox.moe/iz1psz.png", duration: 1200, addedAt: "2025-07-25T07:36:00Z" },
   { id: "v19", title: "Dusk Couture", categories: ["Indian"], tags: ["#Glamour", "#Fashion"], src: "https://files.catbox.moe/nneaqu.mp4", thumb: "https://files.catbox.moe/fxv6wv.png", duration: 600, addedAt: "2025-07-25T07:36:00Z" },
   { id: "v20", title: "Modern Muse", categories: ["Indian"], tags: ["#Style", "#Premium"], src: "https://files.catbox.moe/u9slu4.mp4", thumb: "https://files.catbox.moe/kq1vxn.png", duration: 900, addedAt: "2025-07-25T07:36:00Z" },
+  { id: "v21", title: "Passionate Fashion Session", categories: ["Indian"], tags: ["Indian", "Wife Style", "Full Figure", "Fantasy", "Dark Hair"], src: "https://files.catbox.moe/j3e2tw.mp4", thumb: "https://files.catbox.moe/6v5iko.png", duration: 1500, addedAt: "2025-08-24T04:27:00Z" },
 ];
 
 export const categories = [
