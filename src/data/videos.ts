@@ -7,31 +7,54 @@ export interface Video {
   thumb: string;
   duration: number;
   addedAt: string;
-  models?: string[];
+  model: string;
 }
 
 export const videos: Video[] = [
-  { id: "v1", title: "Glamour Session Vol. 1", categories: ["Indian"], tags: ["#Fashion", "#Glamour"], src: "https://files.catbox.moe/ydxh68.mp4", thumb: "https://files.catbox.moe/x13o1w.png", duration: 900, addedAt: "2025-07-25T07:33:00Z", models: ["AR", "AH"] },
-  { id: "v2", title: "Eastern Elegance", categories: ["Indian"], tags: ["#Luxury", "#Style"], src: "https://files.catbox.moe/7dt5ce.mp4", thumb: "https://files.catbox.moe/4v4vcn.png", duration: 900, addedAt: "2025-07-25T00:17:00Z", models: ["CD", "CV"] },
-  { id: "v3", title: "Silk & Satin Dreams", categories: ["Indian"], tags: ["#Fashion", "#Travel"], src: "https://files.catbox.moe/iidf41.mp4", thumb: "https://files.catbox.moe/7xjtwb.png", duration: 1200, addedAt: "2025-07-25T00:18:00Z", models: ["EJ", "EE"] },
-  { id: "v4", title: "Golden Hour Vibes", categories: ["Indian"], tags: ["#Lifestyle", "#Glamour"], src: "https://files.catbox.moe/iipfhl.mp4", thumb: "https://files.catbox.moe/rhrtox.png", duration: 600, addedAt: "2025-07-25T00:18:00Z", models: ["HR", "JJ"] },
-  { id: "v5", title: "Runway Ready", categories: ["Indian"], tags: ["#Fashion", "#Premium"], src: "https://files.catbox.moe/d583aq.mp4", thumb: "https://files.catbox.moe/5a0wa0.png", duration: 900, addedAt: "2025-07-25T00:21:00Z", models: ["KS", "LR"] },
-  { id: "v6", title: "Opulent Nights", categories: ["Indian"], tags: ["#Luxury", "#Glamour"], src: "https://files.catbox.moe/v80cm0.mp4", thumb: "https://files.catbox.moe/jr0udr.png", duration: 1200, addedAt: "2025-07-25T00:22:00Z", models: ["LJ", "MM"] },
-  { id: "v7", title: "Couture Collection", categories: ["Indian"], tags: ["#Fashion", "#Style"], src: "https://files.catbox.moe/o4aqqn.mp4", thumb: "https://files.catbox.moe/7pde9k.png", duration: 600, addedAt: "2025-07-25T07:32:00Z", models: ["RK", "RR"] },
-  { id: "v8", title: "Starlight Moments", categories: ["Indian"], tags: ["#Travel", "#Luxury"], src: "https://files.catbox.moe/ydxh68.mp4", thumb: "https://files.catbox.moe/x13o1w.png", duration: 900, addedAt: "2025-07-25T07:33:00Z", models: ["VB", "XL"] },
-  { id: "v9", title: "Velvet Dreams", categories: ["Indian"], tags: ["#Fashion", "#Glamour"], src: "https://files.catbox.moe/boavf6.mp4", thumb: "https://files.catbox.moe/mrqjg9.png", duration: 1200, addedAt: "2025-07-25T07:33:00Z", models: ["AV", "BB"] },
-  { id: "v10", title: "Chic Horizon", categories: ["Indian"], tags: ["#Lifestyle", "#Style"], src: "https://files.catbox.moe/pvqa6t.mp4", thumb: "https://files.catbox.moe/kerdiv.png", duration: 600, addedAt: "2025-07-25T07:33:00Z", models: ["CS", "DH"] },
-  { id: "v11", title: "Midnight Bloom", categories: ["Indian"], tags: ["#Fashion", "#Premium"], src: "https://files.catbox.moe/yrm7s4.mp4", thumb: "https://files.catbox.moe/ss5qe5.png", duration: 900, addedAt: "2025-07-25T07:34:00Z", models: ["EW", "ES"] },
-  { id: "v12", title: "Ethereal Glow", categories: ["Indian"], tags: ["#Glamour", "#Luxury"], src: "https://files.catbox.moe/6lqsmn.mp4", thumb: "https://files.catbox.moe/u2688e.png", duration: 1200, addedAt: "2025-07-25T07:34:00Z", models: ["HM", "KK"] },
-  { id: "v13", title: "Pure Radiance", categories: ["Indian"], tags: ["#Fashion", "#Travel"], src: "https://files.catbox.moe/j0d81n.mp4", thumb: "https://files.catbox.moe/0wq6h0.png", duration: 600, addedAt: "2025-07-25T07:35:00Z", models: ["KM", "LL"] },
-  { id: "v14", title: "Luxe Affair", categories: ["Indian"], tags: ["#Style", "#Glamour"], src: "https://files.catbox.moe/b509au.mp4", thumb: "https://files.catbox.moe/546n1m.png", duration: 900, addedAt: "2025-07-25T07:35:00Z", models: ["LC", "ML"] },
-  { id: "v15", title: "Timeless Grace", categories: ["Indian"], tags: ["#Fashion", "#Luxury"], src: "https://files.catbox.moe/iwoz9m.mp4", thumb: "https://files.catbox.moe/kba309.png", duration: 1200, addedAt: "2025-07-25T07:35:00Z", models: ["SA", "VG"] },
-  { id: "v16", title: "Signature Style", categories: ["Indian"], tags: ["#Premium", "#Glamour"], src: "https://files.catbox.moe/r5pklt.mp4", thumb: "https://files.catbox.moe/zqma0e.png", duration: 600, addedAt: "2025-07-25T07:35:00Z", models: ["AL", "CC"] },
-  { id: "v17", title: "Fashion Forward", categories: ["Indian"], tags: ["#Fashion", "#Style"], src: "https://files.catbox.moe/q39glk.mp4", thumb: "https://files.catbox.moe/zqma0e.png", duration: 900, addedAt: "2025-07-25T07:35:00Z", models: ["CL", "EI"] },
-  { id: "v18", title: "Crimson Elegance", categories: ["Indian"], tags: ["#Luxury", "#Travel"], src: "https://files.catbox.moe/py6en3.mp4", thumb: "https://files.catbox.moe/iz1psz.png", duration: 1200, addedAt: "2025-07-25T07:36:00Z", models: ["EM", "GD"] },
-  { id: "v19", title: "Dusk Couture", categories: ["Indian"], tags: ["#Glamour", "#Fashion"], src: "https://files.catbox.moe/nneaqu.mp4", thumb: "https://files.catbox.moe/fxv6wv.png", duration: 600, addedAt: "2025-07-25T07:36:00Z", models: ["JL", "KR"] },
-  { id: "v20", title: "Modern Muse", categories: ["Indian"], tags: ["#Style", "#Premium"], src: "https://files.catbox.moe/u9slu4.mp4", thumb: "https://files.catbox.moe/kq1vxn.png", duration: 900, addedAt: "2025-07-25T07:36:00Z", models: ["LB", "RL"] },
-  { id: "v21", title: "Passionate Fashion Session", categories: ["Indian"], tags: ["Indian", "Wife Style", "Full Figure", "Fantasy", "Dark Hair"], src: "https://files.catbox.moe/j3e2tw.mp4", thumb: "https://files.catbox.moe/6v5iko.png", duration: 1500, addedAt: "2025-08-24T04:27:00Z", models: ["AR", "AH", "CD", "CV", "EJ", "EE", "HR", "JJ", "KS", "LR", "LJ", "MM", "RK", "RR", "VB", "XL", "AV", "BB", "CS", "DH", "EW", "ES", "HM", "KK", "KM", "LL", "LC", "ML", "SA", "VG", "AL", "CC", "CL", "EI", "EM", "GD", "JL", "KR", "LB", "RL", "RM", "SB", "VM"] },
+  { id: "V1", title: "HER STEP", categories: ["Indian"], tags: ["YOUNG"], src: "https://video.damplips.com/video5/323/15.mp4", thumb: "", duration: 600, addedAt: "2026-03-15T00:00:00Z", model: "AD" },
+  { id: "V2", title: "SILK DREAMS", categories: ["Indian"], tags: ["GLAMOUR"], src: "https://video.damplips.com/video5/323/15.mp4", thumb: "", duration: 600, addedAt: "2026-03-15T00:00:00Z", model: "AR" },
+  { id: "V3", title: "GOLDEN HOUR", categories: ["Indian"], tags: ["FASHION"], src: "https://video.damplips.com/video5/323/15.mp4", thumb: "", duration: 600, addedAt: "2026-03-15T00:00:00Z", model: "AH" },
+  { id: "V4", title: "VELVET TOUCH", categories: ["Indian"], tags: ["LUXURY"], src: "https://video.damplips.com/video5/323/15.mp4", thumb: "", duration: 600, addedAt: "2026-03-15T00:00:00Z", model: "CD" },
+  { id: "V5", title: "CRIMSON NIGHTS", categories: ["Indian"], tags: ["STYLE"], src: "https://video.damplips.com/video5/323/15.mp4", thumb: "", duration: 600, addedAt: "2026-03-15T00:00:00Z", model: "CV" },
+  { id: "V6", title: "PURE ELEGANCE", categories: ["Indian"], tags: ["PREMIUM"], src: "https://video.damplips.com/video5/323/15.mp4", thumb: "", duration: 600, addedAt: "2026-03-15T00:00:00Z", model: "EJ" },
+  { id: "V7", title: "MIDNIGHT BLOOM", categories: ["Indian"], tags: ["GLAMOUR"], src: "https://video.damplips.com/video5/323/15.mp4", thumb: "", duration: 600, addedAt: "2026-03-15T00:00:00Z", model: "EE" },
+  { id: "V8", title: "RUNWAY QUEEN", categories: ["Indian"], tags: ["FASHION"], src: "https://video.damplips.com/video5/323/15.mp4", thumb: "", duration: 600, addedAt: "2026-03-15T00:00:00Z", model: "HR" },
+  { id: "V9", title: "STARLIGHT", categories: ["Indian"], tags: ["LUXURY"], src: "https://video.damplips.com/video5/323/15.mp4", thumb: "", duration: 600, addedAt: "2026-03-15T00:00:00Z", model: "JJ" },
+  { id: "V10", title: "DUSK COUTURE", categories: ["Indian"], tags: ["STYLE"], src: "https://video.damplips.com/video5/323/15.mp4", thumb: "", duration: 600, addedAt: "2026-03-15T00:00:00Z", model: "KS" },
+  { id: "V11", title: "OPULENT GLOW", categories: ["Indian"], tags: ["PREMIUM"], src: "https://video.damplips.com/video5/323/15.mp4", thumb: "", duration: 600, addedAt: "2026-03-15T00:00:00Z", model: "LR" },
+  { id: "V12", title: "CHIC AFFAIR", categories: ["Indian"], tags: ["GLAMOUR"], src: "https://video.damplips.com/video5/323/15.mp4", thumb: "", duration: 600, addedAt: "2026-03-15T00:00:00Z", model: "LJ" },
+  { id: "V13", title: "RADIANT AURA", categories: ["Indian"], tags: ["FASHION"], src: "https://video.damplips.com/video5/323/15.mp4", thumb: "", duration: 600, addedAt: "2026-03-15T00:00:00Z", model: "MM" },
+  { id: "V14", title: "SIGNATURE LOOK", categories: ["Indian"], tags: ["LUXURY"], src: "https://video.damplips.com/video5/323/15.mp4", thumb: "", duration: 600, addedAt: "2026-03-15T00:00:00Z", model: "RK" },
+  { id: "V15", title: "FASHION ICON", categories: ["Indian"], tags: ["STYLE"], src: "https://video.damplips.com/video5/323/15.mp4", thumb: "", duration: 600, addedAt: "2026-03-15T00:00:00Z", model: "RR" },
+  { id: "V16", title: "MODERN MUSE", categories: ["Indian"], tags: ["PREMIUM"], src: "https://video.damplips.com/video5/323/15.mp4", thumb: "", duration: 600, addedAt: "2026-03-15T00:00:00Z", model: "VB" },
+  { id: "V17", title: "TIMELESS GRACE", categories: ["Indian"], tags: ["GLAMOUR"], src: "https://video.damplips.com/video5/323/15.mp4", thumb: "", duration: 600, addedAt: "2026-03-15T00:00:00Z", model: "XL" },
+  { id: "V18", title: "ETHEREAL VIBES", categories: ["Indian"], tags: ["FASHION"], src: "https://video.damplips.com/video5/323/15.mp4", thumb: "", duration: 600, addedAt: "2026-03-15T00:00:00Z", model: "AV" },
+  { id: "V19", title: "COUTURE DREAMS", categories: ["Indian"], tags: ["LUXURY"], src: "https://video.damplips.com/video5/323/15.mp4", thumb: "", duration: 600, addedAt: "2026-03-15T00:00:00Z", model: "BB" },
+  { id: "V20", title: "LUXE HORIZON", categories: ["Indian"], tags: ["STYLE"], src: "https://video.damplips.com/video5/323/15.mp4", thumb: "", duration: 600, addedAt: "2026-03-15T00:00:00Z", model: "CS" },
+  { id: "V21", title: "PEARL ESSENCE", categories: ["Indian"], tags: ["PREMIUM"], src: "https://video.damplips.com/video5/323/15.mp4", thumb: "", duration: 600, addedAt: "2026-03-15T00:00:00Z", model: "DH" },
+  { id: "V22", title: "BOLD SPIRIT", categories: ["Indian"], tags: ["GLAMOUR"], src: "https://video.damplips.com/video5/323/15.mp4", thumb: "", duration: 600, addedAt: "2026-03-15T00:00:00Z", model: "EW" },
+  { id: "V23", title: "REGAL CHARM", categories: ["Indian"], tags: ["FASHION"], src: "https://video.damplips.com/video5/323/15.mp4", thumb: "", duration: 600, addedAt: "2026-03-15T00:00:00Z", model: "ES" },
+  { id: "V24", title: "DIVINE GLOW", categories: ["Indian"], tags: ["LUXURY"], src: "https://video.damplips.com/video5/323/15.mp4", thumb: "", duration: 600, addedAt: "2026-03-15T00:00:00Z", model: "HM" },
+  { id: "V25", title: "SATIN NIGHTS", categories: ["Indian"], tags: ["STYLE"], src: "https://video.damplips.com/video5/323/15.mp4", thumb: "", duration: 600, addedAt: "2026-03-15T00:00:00Z", model: "KK" },
+  { id: "V26", title: "FIERCE FLAME", categories: ["Indian"], tags: ["PREMIUM"], src: "https://video.damplips.com/video5/323/15.mp4", thumb: "", duration: 600, addedAt: "2026-03-15T00:00:00Z", model: "KM" },
+  { id: "V27", title: "ROYAL DRAPE", categories: ["Indian"], tags: ["GLAMOUR"], src: "https://video.damplips.com/video5/323/15.mp4", thumb: "", duration: 600, addedAt: "2026-03-15T00:00:00Z", model: "LL" },
+  { id: "V28", title: "CRYSTAL EDGE", categories: ["Indian"], tags: ["FASHION"], src: "https://video.damplips.com/video5/323/15.mp4", thumb: "", duration: 600, addedAt: "2026-03-15T00:00:00Z", model: "LC" },
+  { id: "V29", title: "SHADOW LUXE", categories: ["Indian"], tags: ["LUXURY"], src: "https://video.damplips.com/video5/323/15.mp4", thumb: "", duration: 600, addedAt: "2026-03-15T00:00:00Z", model: "ML" },
+  { id: "V30", title: "AMBER GLOW", categories: ["Indian"], tags: ["STYLE"], src: "https://video.damplips.com/video5/323/15.mp4", thumb: "", duration: 600, addedAt: "2026-03-15T00:00:00Z", model: "SA" },
+  { id: "V31", title: "NEON GRACE", categories: ["Indian"], tags: ["PREMIUM"], src: "https://video.damplips.com/video5/323/15.mp4", thumb: "", duration: 600, addedAt: "2026-03-15T00:00:00Z", model: "VG" },
+  { id: "V32", title: "BLUSH HOUR", categories: ["Indian"], tags: ["GLAMOUR"], src: "https://video.damplips.com/video5/323/15.mp4", thumb: "", duration: 600, addedAt: "2026-03-15T00:00:00Z", model: "AL" },
+  { id: "V33", title: "IVORY DREAM", categories: ["Indian"], tags: ["FASHION"], src: "https://video.damplips.com/video5/323/15.mp4", thumb: "", duration: 600, addedAt: "2026-03-15T00:00:00Z", model: "CC" },
+  { id: "V34", title: "COBALT BLISS", categories: ["Indian"], tags: ["LUXURY"], src: "https://video.damplips.com/video5/323/15.mp4", thumb: "", duration: 600, addedAt: "2026-03-15T00:00:00Z", model: "CL" },
+  { id: "V35", title: "EMBER STYLE", categories: ["Indian"], tags: ["STYLE"], src: "https://video.damplips.com/video5/323/15.mp4", thumb: "", duration: 600, addedAt: "2026-03-15T00:00:00Z", model: "EI" },
+  { id: "V36", title: "JADE FANTASY", categories: ["Indian"], tags: ["PREMIUM"], src: "https://video.damplips.com/video5/323/15.mp4", thumb: "", duration: 600, addedAt: "2026-03-15T00:00:00Z", model: "EM" },
+  { id: "V37", title: "ONYX ALLURE", categories: ["Indian"], tags: ["GLAMOUR"], src: "https://video.damplips.com/video5/323/15.mp4", thumb: "", duration: 600, addedAt: "2026-03-15T00:00:00Z", model: "GD" },
+  { id: "V38", title: "CORAL SPARK", categories: ["Indian"], tags: ["FASHION"], src: "https://video.damplips.com/video5/323/15.mp4", thumb: "", duration: 600, addedAt: "2026-03-15T00:00:00Z", model: "JL" },
+  { id: "V39", title: "BRONZE AURA", categories: ["Indian"], tags: ["LUXURY"], src: "https://video.damplips.com/video5/323/15.mp4", thumb: "", duration: 600, addedAt: "2026-03-15T00:00:00Z", model: "KR" },
+  { id: "V40", title: "PLUM ELEGANCE", categories: ["Indian"], tags: ["STYLE"], src: "https://video.damplips.com/video5/323/15.mp4", thumb: "", duration: 600, addedAt: "2026-03-15T00:00:00Z", model: "LB" },
+  { id: "V41", title: "RUBY VISION", categories: ["Indian"], tags: ["PREMIUM"], src: "https://video.damplips.com/video5/323/15.mp4", thumb: "", duration: 600, addedAt: "2026-03-15T00:00:00Z", model: "RL" },
+  { id: "V42", title: "TEAL DESIRE", categories: ["Indian"], tags: ["GLAMOUR"], src: "https://video.damplips.com/video5/323/15.mp4", thumb: "", duration: 600, addedAt: "2026-03-15T00:00:00Z", model: "RM" },
+  { id: "V43", title: "MAUVE DREAM", categories: ["Indian"], tags: ["FASHION"], src: "https://video.damplips.com/video5/323/15.mp4", thumb: "", duration: 600, addedAt: "2026-03-15T00:00:00Z", model: "SB" },
+  { id: "V44", title: "SCARLET FIRE", categories: ["Indian"], tags: ["LUXURY"], src: "https://video.damplips.com/video5/323/15.mp4", thumb: "", duration: 600, addedAt: "2026-03-15T00:00:00Z", model: "VM" },
 ];
 
 export const categories = [
@@ -64,7 +87,7 @@ export const categories = [
 ];
 
 export const modelCodes = [
-  "AR", "AH", "CD", "CV", "EJ", "EE", "HR", "JJ", "KS", "LR", "LJ", "MM", "RK", "RR", "VB", "XL",
+  "AD", "AR", "AH", "CD", "CV", "EJ", "EE", "HR", "JJ", "KS", "LR", "LJ", "MM", "RK", "RR", "VB", "XL",
   "AV", "BB", "CS", "DH", "EW", "ES", "HM", "KK", "KM", "LL", "LC", "ML", "SA", "VG",
   "AL", "CC", "CL", "EI", "EM", "GD", "JL", "KR", "LB", "RL", "RM", "SB", "VM"
 ];

@@ -13,7 +13,7 @@ const Models = () => {
   const [searchQuery, setSearchQuery] = useState("");
 
   const modelVideos = selectedModel
-    ? videos.filter((v) => v.models?.includes(selectedModel))
+    ? videos.filter((v) => v.model === selectedModel)
     : [];
 
   return (
