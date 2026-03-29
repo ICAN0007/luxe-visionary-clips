@@ -32,13 +32,16 @@ const Index = () => {
     return <AgeVerification onVerified={handleVerify} />;
   }
 
+  const ITEMS_PER_PAGE = 8;
+
   const filtered = videos.filter((v) => {
     const matchSearch = v.title.toLowerCase().includes(searchQuery.toLowerCase());
     const matchFilter = activeFilter === "All" || v.categories.includes(activeFilter);
     return matchSearch && matchFilter;
   });
 
-  const displayedVideos = filtered.slice(0, visibleCount);
+  const totalPages = Math.max(1, Math.ceil(filtered.length / ITEMS_PER_PAGE));
+  const displayedVideos = filtered.slice((currentPage - 1) * ITEMS_PER_PAGE, currentPage * ITEMS_PER_PAGE);
 
   return (
     <div className="min-h-screen gradient-bg">
@@ -54,10 +57,10 @@ const Index = () => {
             <VideoGrid videos={displayedVideos} onPlay={setPlayingVideo} />
 
             {/* Load More */}
-            {visibleCount < filtered.length && (
+            {currentPage < totalPages && (
               <div className="flex justify-center mt-8">
                 <button
-                  onClick={() => setVisibleCount((c) => c + 8)}
+                  onClick={() => setCurrentPage((p) => p + 1)}
                   className="px-8 py-3 rounded-lg accent-gradient text-primary-foreground font-semibold hover:opacity-90 transition-opacity"
                 >
                   LOAD MORE
@@ -92,10 +95,10 @@ const Index = () => {
             {/* Pagination */}
             <div className="flex items-center justify-center gap-2 mt-8">
               <span className="text-sm text-muted-foreground mr-2">PAGES</span>
-              {[1, 2, 3, 4, 5].map((p) => (
+              {Array.from({ length: Math.min(totalPages, 5) }, (_, i) => i + 1).map((p) => (
                 <button
                   key={p}
-                  onClick={() => setCurrentPage(p)}
+                  onClick={() => { setCurrentPage(p); window.scrollTo({ top: 0, behavior: "smooth" }); }}
                   className={`w-8 h-8 rounded text-sm font-medium transition-colors ${
                     currentPage === p
                       ? "bg-primary text-primary-foreground"
@@ -105,7 +108,7 @@ const Index = () => {
                   {p}
                 </button>
               ))}
-              <span className="text-muted-foreground text-sm">… 50</span>
+              {totalPages > 5 && <span className="text-muted-foreground text-sm">… {totalPages}</span>}
             </div>
           </div>
 
@@ -119,7 +122,7 @@ const Index = () => {
       <Footer />
 
       {playingVideo && (
-        <VideoPlayer video={playingVideo} onClose={() => setPlayingVideo(null)} />
+        <VideoPlayer video={playingVideo} allVideos={videos} onPlay={setPlayingVideo} onClose={() => setPlayingVideo(null)} />
       )}
     </div>
   );
