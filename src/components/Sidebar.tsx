@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { categories, modelCodes } from "@/data/videos";
 
 interface SidebarProps {
@@ -6,6 +7,7 @@ interface SidebarProps {
 }
 
 const Sidebar = ({ activeModel, onModelClick }: SidebarProps) => {
+  const navigate = useNavigate();
   return (
     <aside className="space-y-6">
       {/* Categories */}
@@ -35,7 +37,7 @@ const Sidebar = ({ activeModel, onModelClick }: SidebarProps) => {
           {modelCodes.map((code, i) => (
             <button
               key={code + i}
-              onClick={() => onModelClick?.(activeModel === code ? "" : code)}
+              onClick={() => navigate(`/models?code=${code}`)}
               className={`px-3 py-1 text-xs rounded transition-colors ${
                 activeModel === code
                   ? "bg-primary text-primary-foreground"
