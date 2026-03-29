@@ -37,7 +37,7 @@ const Sidebar = ({ activeModel, onModelClick }: SidebarProps) => {
           {modelCodes.map((code, i) => (
             <button
               key={code + i}
-              onClick={() => navigate(`/models?code=${code}`)}
+              onClick={() => navigate(`/model/${code}`)}
               className={`px-3 py-1 text-xs rounded transition-colors ${
                 activeModel === code
                   ? "bg-primary text-primary-foreground"
