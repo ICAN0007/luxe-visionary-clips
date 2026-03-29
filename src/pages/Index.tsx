@@ -38,7 +38,7 @@ const Index = () => {
   const filtered = videos.filter((v) => {
     const matchSearch = v.title.toLowerCase().includes(searchQuery.toLowerCase());
     const matchFilter = activeFilter === "All" || v.categories.includes(activeFilter);
-    const matchModel = !activeModel || (v.models && v.models.includes(activeModel));
+    const matchModel = !activeModel || v.model === activeModel;
     return matchSearch && matchFilter && matchModel;
   });
 
