@@ -1,6 +1,11 @@
 import { categories, modelCodes } from "@/data/videos";
 
-const Sidebar = () => {
+interface SidebarProps {
+  activeModel?: string | null;
+  onModelClick?: (code: string) => void;
+}
+
+const Sidebar = ({ activeModel, onModelClick }: SidebarProps) => {
   return (
     <aside className="space-y-6">
       {/* Categories */}
@@ -28,13 +33,17 @@ const Sidebar = () => {
         </h3>
         <div className="flex flex-wrap gap-2">
           {modelCodes.map((code, i) => (
-            <a
+            <button
               key={code + i}
-              href="#"
-              className="px-3 py-1 text-xs rounded bg-secondary text-secondary-foreground hover:bg-primary hover:text-primary-foreground transition-colors"
+              onClick={() => onModelClick?.(activeModel === code ? "" : code)}
+              className={`px-3 py-1 text-xs rounded transition-colors ${
+                activeModel === code
+                  ? "bg-primary text-primary-foreground"
+                  : "bg-secondary text-secondary-foreground hover:bg-primary hover:text-primary-foreground"
+              }`}
             >
               {code}
-            </a>
+            </button>
           ))}
         </div>
       </div>

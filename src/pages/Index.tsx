@@ -17,6 +17,7 @@ const Index = () => {
   const [visibleCount, setVisibleCount] = useState(8);
   const [activeTab, setActiveTab] = useState("RECENT POSTS");
   const [currentPage, setCurrentPage] = useState(1);
+  const [activeModel, setActiveModel] = useState<string | null>(null);
 
   useEffect(() => {
     const verified = sessionStorage.getItem("age-verified");
@@ -37,7 +38,8 @@ const Index = () => {
   const filtered = videos.filter((v) => {
     const matchSearch = v.title.toLowerCase().includes(searchQuery.toLowerCase());
     const matchFilter = activeFilter === "All" || v.categories.includes(activeFilter);
-    return matchSearch && matchFilter;
+    const matchModel = !activeModel || (v.models && v.models.includes(activeModel));
+    return matchSearch && matchFilter && matchModel;
   });
 
   const totalPages = Math.max(1, Math.ceil(filtered.length / ITEMS_PER_PAGE));
@@ -114,7 +116,7 @@ const Index = () => {
 
           {/* Sidebar */}
           <div className="w-full lg:w-72 flex-shrink-0">
-            <Sidebar />
+            <Sidebar activeModel={activeModel} onModelClick={(code) => { setActiveModel(code || null); setCurrentPage(1); }} />
           </div>
         </div>
       </main>
