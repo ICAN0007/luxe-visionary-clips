@@ -1,15 +1,14 @@
-import { useState, useMemo } from "react";
+import { useMemo } from "react";
 import { useParams, Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import VideoGrid from "@/components/VideoGrid";
-import VideoPlayer from "@/components/VideoPlayer";
-import { videos, type Video } from "@/data/videos";
+import { videos } from "@/data/videos";
+import { useState } from "react";
 
 const ModelDetail = () => {
   const { code } = useParams<{ code: string }>();
-  const [playingVideo, setPlayingVideo] = useState<Video | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
 
   const modelVideos = useMemo(
@@ -22,7 +21,6 @@ const ModelDetail = () => {
       <Header searchQuery={searchQuery} onSearchChange={setSearchQuery} />
 
       <main className="container mx-auto px-4 py-8">
-        {/* Back + Title */}
         <div className="flex items-center gap-4 mb-6">
           <Link
             to="/models"
@@ -34,33 +32,24 @@ const ModelDetail = () => {
         </div>
 
         <h1 className="text-3xl font-display font-bold text-foreground mb-1">
-          Model {code}
+          {code}
         </h1>
         <p className="text-muted-foreground mb-8">
           {modelVideos.length} video{modelVideos.length !== 1 ? "s" : ""}
         </p>
 
         {modelVideos.length > 0 ? (
-          <VideoGrid videos={modelVideos} onPlay={setPlayingVideo} />
+          <VideoGrid videos={modelVideos} />
         ) : (
           <div className="text-center py-20">
             <p className="text-muted-foreground text-lg">
-              No videos found for model {code}
+              No videos found for {code}
             </p>
           </div>
         )}
       </main>
 
       <Footer />
-
-      {playingVideo && (
-        <VideoPlayer
-          video={playingVideo}
-          allVideos={modelVideos}
-          onPlay={setPlayingVideo}
-          onClose={() => setPlayingVideo(null)}
-        />
-      )}
     </div>
   );
 };

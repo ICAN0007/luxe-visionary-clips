@@ -5,16 +5,13 @@ import FilterBar from "@/components/FilterBar";
 import FeaturedVideo from "@/components/FeaturedVideo";
 import VideoGrid from "@/components/VideoGrid";
 import Sidebar from "@/components/Sidebar";
-import VideoPlayer from "@/components/VideoPlayer";
 import Footer from "@/components/Footer";
-import { videos, type Video } from "@/data/videos";
+import { videos } from "@/data/videos";
 
 const Index = () => {
   const [isVerified, setIsVerified] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [activeFilter, setActiveFilter] = useState("All");
-  const [playingVideo, setPlayingVideo] = useState<Video | null>(null);
-  const [visibleCount, setVisibleCount] = useState(8);
   const [activeTab, setActiveTab] = useState("RECENT POSTS");
   const [currentPage, setCurrentPage] = useState(1);
   const [activeModel, setActiveModel] = useState<string | null>(null);
@@ -53,12 +50,10 @@ const Index = () => {
         <FilterBar activeFilter={activeFilter} onFilterChange={setActiveFilter} />
 
         <div className="flex flex-col lg:flex-row gap-8 mt-6">
-          {/* Main content */}
           <div className="flex-1 min-w-0">
-            <FeaturedVideo video={videos[0]} onPlay={setPlayingVideo} />
-            <VideoGrid videos={displayedVideos} onPlay={setPlayingVideo} />
+            <FeaturedVideo video={videos[0]} />
+            <VideoGrid videos={displayedVideos} />
 
-            {/* Load More */}
             {currentPage < totalPages && (
               <div className="flex justify-center mt-8">
                 <button
@@ -70,7 +65,6 @@ const Index = () => {
               </div>
             )}
 
-            {/* Bottom Tabs */}
             <div className="mt-10 border-t border-border pt-6">
               <div className="flex gap-6 mb-4">
                 {["RECENT POSTS", "RECENT SEARCHES", "POPULAR SEARCHES"].map((tab) => (
@@ -94,7 +88,6 @@ const Index = () => {
               </p>
             </div>
 
-            {/* Pagination */}
             <div className="flex items-center justify-center gap-2 mt-8">
               <span className="text-sm text-muted-foreground mr-2">PAGES</span>
               {Array.from({ length: Math.min(totalPages, 5) }, (_, i) => i + 1).map((p) => (
@@ -114,7 +107,6 @@ const Index = () => {
             </div>
           </div>
 
-          {/* Sidebar */}
           <div className="w-full lg:w-72 flex-shrink-0">
             <Sidebar activeModel={activeModel} onModelClick={(code) => { setActiveModel(code || null); setCurrentPage(1); }} />
           </div>
@@ -122,10 +114,6 @@ const Index = () => {
       </main>
 
       <Footer />
-
-      {playingVideo && (
-        <VideoPlayer video={playingVideo} allVideos={videos} onPlay={setPlayingVideo} onClose={() => setPlayingVideo(null)} />
-      )}
     </div>
   );
 };
