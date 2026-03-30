@@ -8,7 +8,16 @@ import Models from "./pages/Models.tsx";
 import ModelDetail from "./pages/ModelDetail.tsx";
 import VideoPage from "./pages/VideoPage.tsx";
 import NotFound from "./pages/NotFound.tsx";
-...
+
+const queryClient = new QueryClient();
+
+const App = () => (
+  <QueryClientProvider client={queryClient}>
+    <TooltipProvider>
+      <Toaster />
+      <Sonner />
+      <BrowserRouter>
+        <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/video/:id" element={<VideoPage />} />
           <Route path="/models" element={<Models />} />
