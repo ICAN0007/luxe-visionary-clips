@@ -1,10 +1,6 @@
 import { Play } from "lucide-react";
+import { Link } from "react-router-dom";
 import type { Video } from "@/data/videos";
-
-interface VideoCardProps {
-  video: Video;
-  onPlay: (video: Video) => void;
-}
 
 const formatDuration = (seconds: number) => {
   const m = Math.floor(seconds / 60);
@@ -12,12 +8,12 @@ const formatDuration = (seconds: number) => {
   return `${m}:${s.toString().padStart(2, "0")}`;
 };
 
-const VideoCard = ({ video, onPlay }: VideoCardProps) => {
+const VideoCard = ({ video }: { video: Video }) => {
   return (
-    <div className="video-card group" onClick={() => onPlay(video)}>
+    <Link to={`/video/${video.id}`} className="video-card group block">
       <div className="relative aspect-video overflow-hidden">
         <img
-          src={video.thumb}
+          src={video.thumb || "/placeholder.svg"}
           alt={video.title}
           className="w-full h-full object-cover"
           loading="lazy"
@@ -31,13 +27,14 @@ const VideoCard = ({ video, onPlay }: VideoCardProps) => {
       </div>
       <div className="p-3">
         <h3 className="text-sm font-medium text-foreground truncate">{video.title}</h3>
+        <p className="text-xs text-muted-foreground mt-0.5">{video.model}</p>
         <div className="flex gap-1 mt-1">
           {video.tags.slice(0, 2).map((tag) => (
             <span key={tag} className="text-xs text-primary">{tag}</span>
           ))}
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
