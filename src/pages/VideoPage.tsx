@@ -169,15 +169,11 @@ const VideoPage = () => {
           {/* Main Content */}
           <div className="flex-1 min-w-0">
             {/* Video Player */}
-            <div className="w-full rounded-xl overflow-hidden bg-black">
-              <video
-                key={video.src}
-                src={video.src}
-                controls
-                autoPlay
-                className="w-full aspect-video"
-              />
-            </div>
+            <CustomVideoPlayer
+              src={video.src}
+              poster={video.thumb}
+              autoPlay
+            />
 
             {/* Video Info */}
             <div className="mt-4">
