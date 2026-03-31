@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import { ArrowLeft, Heart, Send, Trash2, Play } from "lucide-react";
+import CustomVideoPlayer from "@/components/CustomVideoPlayer";
 import { videos, type Video } from "@/data/videos";
 
 interface Comment {
