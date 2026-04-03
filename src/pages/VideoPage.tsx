@@ -134,13 +134,13 @@ const VideoPage = () => {
     );
   }
 
-  const recommended = videos
-    .filter(
-      (v) =>
-        v.id !== video.id &&
-        (v.model === video.model || v.tags.some((t) => video.tags.includes(t)))
-    )
-    .slice(0, 8);
+  const sameModel = videos.filter((v) => v.id !== video.id && v.model === video.model);
+  const sameTag = videos.filter(
+    (v) => v.id !== video.id && v.model !== video.model && v.tags.some((t) => video.tags.includes(t))
+  );
+  const recommended = [...sameModel, ...sameTag].slice(0, 8);
+  const relatedByModel = sameModel.slice(0, 6);
+  const relatedByTag = sameTag.slice(0, 6);
 
   const sortedComments = [...comments].sort((a, b) =>
     sortBy === "top" ? b.likes - a.likes : b.timestamp - a.timestamp
