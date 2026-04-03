@@ -30,7 +30,7 @@ const Index = () => {
     return <AgeVerification onVerified={handleVerify} />;
   }
 
-  const ITEMS_PER_PAGE = 8;
+  const ITEMS_PER_PAGE = 12;
 
   const filtered = videos.filter((v) => {
     const matchSearch = v.title.toLowerCase().includes(searchQuery.toLowerCase());
