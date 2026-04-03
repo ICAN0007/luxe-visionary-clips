@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
-import { categories, modelCodes } from "@/data/videos";
-
+import { Link } from "react-router-dom";
+import { Play } from "lucide-react";
+import { categories, modelCodes, videos } from "@/data/videos";
 interface SidebarProps {
   activeModel?: string | null;
   onModelClick?: (code: string) => void;
