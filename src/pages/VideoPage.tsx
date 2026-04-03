@@ -344,6 +344,56 @@ const VideoPage = () => {
             </div>
           </div>
         </div>
+        {/* Related Videos - Bottom Section */}
+        {(relatedByModel.length > 0 || relatedByTag.length > 0) && (
+          <div className="mt-10 border-t border-border pt-8">
+            {relatedByModel.length > 0 && (
+              <div className="mb-8">
+                <h3 className="text-lg font-display font-bold text-foreground mb-4">
+                  More from <Link to={`/model/${encodeURIComponent(video.model)}`} className="text-primary hover:underline">{video.model}</Link>
+                </h3>
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                  {relatedByModel.map((v) => (
+                    <Link key={v.id} to={`/video/${v.id}`} className="video-card group">
+                      <div className="relative aspect-video overflow-hidden rounded-lg">
+                        <img src={v.thumb || "/placeholder.svg"} alt={v.title} className="w-full h-full object-cover" loading="lazy" />
+                        <div className="absolute inset-0 bg-background/0 group-hover:bg-background/20 transition-colors flex items-center justify-center">
+                          <Play className="w-8 h-8 text-foreground opacity-0 group-hover:opacity-100 transition-opacity" fill="currentColor" />
+                        </div>
+                        <span className="absolute bottom-1 right-1 bg-background/80 text-foreground text-xs px-1.5 py-0.5 rounded">{formatDuration(v.duration)}</span>
+                      </div>
+                      <p className="text-sm font-medium text-foreground mt-2 truncate">{v.title}</p>
+                      <p className="text-xs text-muted-foreground">{v.model}</p>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {relatedByTag.length > 0 && (
+              <div>
+                <h3 className="text-lg font-display font-bold text-foreground mb-4">
+                  Related Videos
+                </h3>
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                  {relatedByTag.map((v) => (
+                    <Link key={v.id} to={`/video/${v.id}`} className="video-card group">
+                      <div className="relative aspect-video overflow-hidden rounded-lg">
+                        <img src={v.thumb || "/placeholder.svg"} alt={v.title} className="w-full h-full object-cover" loading="lazy" />
+                        <div className="absolute inset-0 bg-background/0 group-hover:bg-background/20 transition-colors flex items-center justify-center">
+                          <Play className="w-8 h-8 text-foreground opacity-0 group-hover:opacity-100 transition-opacity" fill="currentColor" />
+                        </div>
+                        <span className="absolute bottom-1 right-1 bg-background/80 text-foreground text-xs px-1.5 py-0.5 rounded">{formatDuration(v.duration)}</span>
+                      </div>
+                      <p className="text-sm font-medium text-foreground mt-2 truncate">{v.title}</p>
+                      <p className="text-xs text-muted-foreground">{v.model}</p>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+        )}
       </div>
     </div>
   );
