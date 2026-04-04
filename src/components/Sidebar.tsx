@@ -32,7 +32,7 @@ const Sidebar = ({ activeModel, onModelClick }: SidebarProps) => {
       {/* Models */}
       <div className="card-gradient rounded-xl p-4 border border-border">
         <h3 className="text-lg font-display font-bold text-foreground mb-4 tracking-wide">
-          Foreign → MODELS
+          MODELS
         </h3>
         <div className="flex flex-wrap gap-2">
           {modelCodes.map((code, i) => (

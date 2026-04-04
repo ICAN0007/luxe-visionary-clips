@@ -79,7 +79,7 @@ const Models = () => {
               </div>
               <div className="p-4">
                 <h3 className="text-lg font-display font-bold text-foreground group-hover:text-primary transition-colors">
-                  Model {model.code}
+                  {model.code}
                 </h3>
                 <p className="text-sm text-muted-foreground mt-1">
                   {model.videoCount} video{model.videoCount !== 1 ? "s" : ""}

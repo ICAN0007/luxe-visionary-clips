@@ -33,8 +33,9 @@ const Index = () => {
   const ITEMS_PER_PAGE = 12;
 
   const filtered = videos.filter((v) => {
-    const matchSearch = v.title.toLowerCase().includes(searchQuery.toLowerCase());
-    const matchFilter = activeFilter === "All" || v.categories.includes(activeFilter);
+    const q = searchQuery.toLowerCase();
+    const matchSearch = !q || v.title.toLowerCase().includes(q) || v.model.toLowerCase().includes(q) || v.tags.some(t => t.toLowerCase().includes(q));
+    const matchFilter = activeFilter === "All" || activeFilter === "Models" || v.categories.includes(activeFilter);
     const matchModel = !activeModel || v.model === activeModel;
     return matchSearch && matchFilter && matchModel;
   });
