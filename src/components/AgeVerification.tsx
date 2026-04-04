@@ -8,14 +8,17 @@ const AgeVerification = ({ onVerified }: AgeVerificationProps) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center gradient-bg">
-      {/* Top gradient bar */}
-      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 via-green-400 to-yellow-400" />
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#1a1a2e]">
+      {/* Rainbow gradient bar at top */}
+      <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-red-500 via-yellow-400 via-green-400 via-blue-500 to-purple-500" />
 
-      <div className="flex flex-col items-center gap-6 px-6 text-center max-w-md">
-        <h1 className="text-3xl font-bold text-foreground font-display">Age Verification</h1>
-        <p className="text-muted-foreground text-sm leading-relaxed">
-          You must be 21 or older to visit this website. Your age will be verified at checkout.
+      <div className="flex flex-col items-center gap-5 px-8 text-center max-w-sm">
+        <h1 className="text-3xl font-bold text-white tracking-tight">
+          Age Verification
+        </h1>
+        <p className="text-gray-400 text-sm leading-relaxed">
+          You must be 21 or older to visit this website. Your age will be
+          verified at checkout.
         </p>
 
         <button
@@ -23,11 +26,12 @@ const AgeVerification = ({ onVerified }: AgeVerificationProps) => {
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
           className={`
-            px-10 py-3 rounded-lg border-2 border-green-500 text-foreground font-semibold text-lg
+            mt-2 px-10 py-3.5 rounded-full font-semibold text-white text-base
             transition-all duration-300 flex items-center gap-2
-            ${isHovered ? "bg-green-500/20 glow-shadow" : "bg-transparent"}
+            bg-gradient-to-r from-teal-500 to-green-400
+            border border-teal-400/50
+            ${isHovered ? "shadow-[0_0_25px_rgba(45,212,191,0.4)] scale-105" : "shadow-[0_0_15px_rgba(45,212,191,0.2)]"}
           `}
-          style={isHovered ? { boxShadow: "0 0 20px rgba(34,197,94,0.3)" } : {}}
         >
           I'm 21 or older
           <span className="text-sm">›</span>
@@ -37,24 +41,35 @@ const AgeVerification = ({ onVerified }: AgeVerificationProps) => {
           href="https://agechecker.net/age-verification-explained"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-muted-foreground text-sm hover:text-foreground transition-colors underline"
+          className="text-teal-400/80 text-sm hover:text-teal-300 transition-colors"
         >
           Age Verification FAQ
         </a>
 
-        <a
-          href="https://agechecker.net/?from=age-gate"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-2 mt-4 text-muted-foreground hover:text-foreground transition-colors"
-        >
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-primary">
-            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-          </svg>
-          <span className="font-bold">
-            Age<span className="text-primary">Checker</span>.Net
-          </span>
-        </a>
+        <div className="mt-6 pt-6 border-t border-gray-700/50 w-full flex justify-center">
+          <a
+            href="https://agechecker.net/?from=age-gate"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors"
+          >
+            <svg
+              width="22"
+              height="22"
+              viewBox="0 0 24 24"
+              fill="none"
+              className="text-teal-400"
+            >
+              <path
+                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"
+                fill="currentColor"
+              />
+            </svg>
+            <span className="font-bold text-lg">
+              Age<span className="text-teal-400">Checker</span>.Net
+            </span>
+          </a>
+        </div>
       </div>
     </div>
   );
