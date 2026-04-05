@@ -59,7 +59,7 @@ const Models = () => {
           {paginated.map((model) => (
             <Link
               key={model.code}
-              to={`/model/${model.code}`}
+              to={`/model/${encodeURIComponent(model.code)}`}
               className="group card-gradient rounded-xl border border-border overflow-hidden hover:border-primary/50 transition-all duration-300 hover:shadow-[var(--shadow-glow)] hover:scale-[1.02]"
             >
               <div className="relative aspect-video bg-secondary overflow-hidden">

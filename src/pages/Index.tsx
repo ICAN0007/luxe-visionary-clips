@@ -15,6 +15,7 @@ const Index = () => {
   const [activeTab, setActiveTab] = useState("RECENT POSTS");
   const [currentPage, setCurrentPage] = useState(1);
   const [activeModel, setActiveModel] = useState<string | null>(null);
+  const [activeCategory, setActiveCategory] = useState<string | null>(null);
 
   useEffect(() => {
     const verified = sessionStorage.getItem("age-verified");
@@ -32,28 +33,106 @@ const Index = () => {
 
   const ITEMS_PER_PAGE = 12;
 
+  const handleFilterChange = (filter: string) => {
+    setActiveFilter(filter);
+    setActiveCategory(null);
+    setActiveModel(null);
+    setCurrentPage(1);
+  };
+
+  const handleCategoryClick = (category: string) => {
+    if (activeCategory === category) {
+      setActiveCategory(null);
+      setActiveFilter("All");
+    } else {
+      setActiveCategory(category);
+      setActiveFilter(category);
+    }
+    setActiveModel(null);
+    setCurrentPage(1);
+  };
+
+  const handleModelClick = (code: string) => {
+    if (activeModel === code) {
+      setActiveModel(null);
+    } else {
+      setActiveModel(code);
+    }
+    setCurrentPage(1);
+  };
+
   const filtered = videos.filter((v) => {
     const q = searchQuery.toLowerCase();
-    const matchSearch = !q || v.title.toLowerCase().includes(q) || v.model.toLowerCase().includes(q) || v.tags.some(t => t.toLowerCase().includes(q));
-    const matchFilter = activeFilter === "All" || activeFilter === "Models" || v.categories.includes(activeFilter);
+    const matchSearch =
+      !q ||
+      v.title.toLowerCase().includes(q) ||
+      v.model.toLowerCase().includes(q) ||
+      v.tags.some((t) => t.toLowerCase().includes(q)) ||
+      v.categories.some((c) => c.toLowerCase().includes(q));
+    const matchFilter =
+      activeFilter === "All" ||
+      activeFilter === "Models" ||
+      v.categories.includes(activeFilter);
     const matchModel = !activeModel || v.model === activeModel;
     return matchSearch && matchFilter && matchModel;
   });
 
   const totalPages = Math.max(1, Math.ceil(filtered.length / ITEMS_PER_PAGE));
-  const displayedVideos = filtered.slice((currentPage - 1) * ITEMS_PER_PAGE, currentPage * ITEMS_PER_PAGE);
+  const displayedVideos = filtered.slice(
+    (currentPage - 1) * ITEMS_PER_PAGE,
+    currentPage * ITEMS_PER_PAGE
+  );
 
   return (
     <div className="min-h-screen gradient-bg">
-      <Header searchQuery={searchQuery} onSearchChange={setSearchQuery} />
+      <Header searchQuery={searchQuery} onSearchChange={(q) => { setSearchQuery(q); setCurrentPage(1); }} />
 
       <main className="container mx-auto px-4 py-6">
-        <FilterBar activeFilter={activeFilter} onFilterChange={setActiveFilter} />
+        <FilterBar activeFilter={activeFilter} onFilterChange={handleFilterChange} />
+
+        {(activeModel || activeCategory) && (
+          <div className="flex items-center gap-2 mb-4">
+            <span className="text-sm text-muted-foreground">Filtering:</span>
+            {activeModel && (
+              <span className="text-xs px-3 py-1 rounded-full bg-primary text-primary-foreground flex items-center gap-1">
+                Model: {activeModel}
+                <button onClick={() => setActiveModel(null)} className="ml-1 hover:opacity-70">✕</button>
+              </span>
+            )}
+            {activeCategory && (
+              <span className="text-xs px-3 py-1 rounded-full bg-primary text-primary-foreground flex items-center gap-1">
+                {activeCategory}
+                <button onClick={() => { setActiveCategory(null); setActiveFilter("All"); }} className="ml-1 hover:opacity-70">✕</button>
+              </span>
+            )}
+            <button
+              onClick={() => { setActiveModel(null); setActiveCategory(null); setActiveFilter("All"); setSearchQuery(""); setCurrentPage(1); }}
+              className="text-xs text-muted-foreground hover:text-foreground ml-2"
+            >
+              Clear all
+            </button>
+          </div>
+        )}
 
         <div className="flex flex-col lg:flex-row gap-8 mt-6">
           <div className="flex-1 min-w-0">
-            <FeaturedVideo video={videos[0]} />
-            <VideoGrid videos={displayedVideos} />
+            {!searchQuery && !activeModel && !activeCategory && activeFilter === "All" && (
+              <FeaturedVideo video={videos[0]} />
+            )}
+
+            {filtered.length > 0 ? (
+              <VideoGrid videos={displayedVideos} />
+            ) : (
+              <div className="text-center py-20">
+                <p className="text-lg text-muted-foreground">No videos found</p>
+                <button
+                  onClick={() => { setActiveModel(null); setActiveCategory(null); setActiveFilter("All"); setSearchQuery(""); setCurrentPage(1); }}
+                  className="mt-4 text-primary hover:underline text-sm"
+                >
+                  Clear filters
+                </button>
+              </div>
+            )}
 
             {currentPage < totalPages && (
               <div className="flex justify-center mt-8">
@@ -89,27 +168,34 @@ const Index = () => {
               </p>
             </div>
 
-            <div className="flex items-center justify-center gap-2 mt-8">
-              <span className="text-sm text-muted-foreground mr-2">PAGES</span>
-              {Array.from({ length: Math.min(totalPages, 5) }, (_, i) => i + 1).map((p) => (
-                <button
-                  key={p}
-                  onClick={() => { setCurrentPage(p); window.scrollTo({ top: 0, behavior: "smooth" }); }}
-                  className={`w-8 h-8 rounded text-sm font-medium transition-colors ${
-                    currentPage === p
-                      ? "bg-primary text-primary-foreground"
-                      : "bg-secondary text-secondary-foreground hover:bg-muted"
-                  }`}
-                >
-                  {p}
-                </button>
-              ))}
-              {totalPages > 5 && <span className="text-muted-foreground text-sm">… {totalPages}</span>}
-            </div>
+            {totalPages > 1 && (
+              <div className="flex items-center justify-center gap-2 mt-8">
+                <span className="text-sm text-muted-foreground mr-2">PAGES</span>
+                {Array.from({ length: Math.min(totalPages, 5) }, (_, i) => i + 1).map((p) => (
+                  <button
+                    key={p}
+                    onClick={() => { setCurrentPage(p); window.scrollTo({ top: 0, behavior: "smooth" }); }}
+                    className={`w-8 h-8 rounded text-sm font-medium transition-colors ${
+                      currentPage === p
+                        ? "bg-primary text-primary-foreground"
+                        : "bg-secondary text-secondary-foreground hover:bg-muted"
+                    }`}
+                  >
+                    {p}
+                  </button>
+                ))}
+                {totalPages > 5 && <span className="text-muted-foreground text-sm">… {totalPages}</span>}
+              </div>
+            )}
           </div>
 
           <div className="w-full lg:w-72 flex-shrink-0">
-            <Sidebar activeModel={activeModel} onModelClick={(code) => { setActiveModel(code || null); setCurrentPage(1); }} />
+            <Sidebar
+              activeModel={activeModel}
+              onModelClick={handleModelClick}
+              activeCategory={activeCategory || undefined}
+              onCategoryClick={handleCategoryClick}
+            />
           </div>
         </div>
       </main>
