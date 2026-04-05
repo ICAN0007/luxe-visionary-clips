@@ -1,14 +1,15 @@
-import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { Play } from "lucide-react";
 import { categories, modelCodes, videos } from "@/data/videos";
+
 interface SidebarProps {
   activeModel?: string | null;
   onModelClick?: (code: string) => void;
+  activeCategory?: string;
+  onCategoryClick?: (category: string) => void;
 }
 
-const Sidebar = ({ activeModel, onModelClick }: SidebarProps) => {
-  const navigate = useNavigate();
+const Sidebar = ({ activeModel, onModelClick, activeCategory, onCategoryClick }: SidebarProps) => {
   return (
     <aside className="space-y-6">
       {/* Categories */}
@@ -16,29 +17,31 @@ const Sidebar = ({ activeModel, onModelClick }: SidebarProps) => {
         <h3 className="text-lg font-display font-bold text-foreground mb-4 tracking-wide">CATEGORIES</h3>
         <div className="space-y-2 max-h-[500px] overflow-y-auto pr-2">
           {categories.map((cat) => (
-            <a
+            <button
               key={cat.name}
-              href="#"
-              className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors py-1"
+              onClick={() => onCategoryClick?.(cat.name)}
+              className={`flex items-center gap-2 text-sm transition-colors py-1 w-full text-left ${
+                activeCategory === cat.name
+                  ? "text-foreground font-semibold"
+                  : "text-muted-foreground hover:text-foreground"
+              }`}
             >
               <span className="w-2 h-2 rounded-full bg-primary flex-shrink-0" />
               <span className="text-primary font-medium">{cat.count}</span>
               <span>{cat.name}</span>
-            </a>
+            </button>
           ))}
         </div>
       </div>
 
       {/* Models */}
       <div className="card-gradient rounded-xl p-4 border border-border">
-        <h3 className="text-lg font-display font-bold text-foreground mb-4 tracking-wide">
-          MODELS
-        </h3>
+        <h3 className="text-lg font-display font-bold text-foreground mb-4 tracking-wide">MODELS</h3>
         <div className="flex flex-wrap gap-2">
           {modelCodes.map((code, i) => (
             <button
               key={code + i}
-              onClick={() => navigate(`/model/${code}`)}
+              onClick={() => onModelClick?.(code)}
               className={`px-3 py-1 text-xs rounded transition-colors ${
                 activeModel === code
                   ? "bg-primary text-primary-foreground"
@@ -53,9 +56,7 @@ const Sidebar = ({ activeModel, onModelClick }: SidebarProps) => {
 
       {/* Trending Videos */}
       <div className="card-gradient rounded-xl p-4 border border-border">
-        <h3 className="text-lg font-display font-bold text-foreground mb-4 tracking-wide">
-          🔥 TRENDING
-        </h3>
+        <h3 className="text-lg font-display font-bold text-foreground mb-4 tracking-wide">🔥 TRENDING</h3>
         <div className="space-y-3">
           {videos.slice(0, 6).map((video) => (
             <Link
