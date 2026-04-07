@@ -24,7 +24,7 @@ export const videos: Video[] = [
     categories: ["foreign"],
     tags: [],
     src: "https://video.damplips.com/video5/323/15.mp4",
-    thumb: "https://files.catbox.moe/601wti.webp",
+    thumb: "https://files.catbox.moe/7ebgp1.jpg",
     duration: 600,
     addedAt: "2026-03-15T00:00:00Z",
     model: "Adria Rae"
@@ -156,7 +156,7 @@ export const videos: Video[] = [
     categories: ["foreign"],
     tags: [],
     src: "https://video.damplips.com/video5/323/15.mp4",
-    thumb: "",
+    thumb: "https://files.catbox.moe/mzrnqz.jpg",
     duration: 600,
     addedAt: "2026-03-15T00:00:00Z",
     model: "Rae Lil Black"
@@ -200,7 +200,7 @@ export const videos: Video[] = [
     categories: ["foreign"],
     tags: [],
     src: "https://video.damplips.com/video5/323/15.mp4",
-    thumb: "",
+    thumb: "https://files.catbox.moe/qvmvvw.jpg",
     duration: 600,
     addedAt: "2026-03-15T00:00:00Z",
     model: "Agatha Vega"
