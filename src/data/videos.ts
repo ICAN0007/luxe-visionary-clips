@@ -15,457 +15,540 @@ export interface Category {
   name: string;
 }
 
-// ====================== FULL CLEAN VIDEOS ARRAY ======================
-export const videos: Video[] = [
+// ==================== MAIN VIDEOS ARRAY (48 entries from your folder) ====================
 
-  // ====================== ANGEL GOSTOSA ======================
+export const videos: Video[] = [
   {
     id: "V1",
     title: "HER STEP",
-    categories: [],
+    categories: ["foreign"],
     tags: [],
-    src: "https://video.damplips.com/video7/677/01.mp4",
-    thumb: "",
+    src: "https://video.damplips.com/video5/323/15.mp4",
+    thumb: "https://files.catbox.moe/7ebgp1.jpg",
     duration: 600,
-    addedAt: "2024-10-09T00:00:00Z",
-    model: "Angel Gostosa"
+    addedAt: "2026-03-15T00:00:00Z",
+    model: "Adria Rae"
   },
   {
     id: "V2",
     title: "HER STEP",
-    categories: [],
+    categories: ["foreign"],
     tags: [],
-    src: "https://video.damplips.com/video7/676/14.mp4",
-    thumb: "",
+    src: "https://video.damplips.com/video5/323/15.mp4",
+    thumb: "https://files.catbox.moe/x868xi.webp",
     duration: 600,
-    addedAt: "2024-09-26T00:00:00Z",
-    model: "Angel Gostosa"
+    addedAt: "2026-03-15T00:00:00Z",
+    model: "Aria Lee"
   },
   {
     id: "V3",
     title: "HER STEP",
-    categories: [],
+    categories: ["foreign"],
     tags: [],
-    src: "https://video.damplips.com/video7/674/16.mp4",
-    thumb: "",
+    src: "https://video.damplips.com/video5/323/15.mp4",
+    thumb: "https://files.catbox.moe/hpm13y.webp",
     duration: 600,
-    addedAt: "2024-09-01T00:00:00Z",
-    model: "Angel Gostosa"
+    addedAt: "2026-03-15T00:00:00Z",
+    model: "Chanel Camryn"
   },
   {
     id: "V4",
     title: "HER STEP",
-    categories: [],
+    categories: ["foreign"],
     tags: [],
-    src: "https://video.damplips.com/video7/674/15.mp4",
-    thumb: "",
+    src: "https://video.damplips.com/video5/323/15.mp4",
+    thumb: "https://files.catbox.moe/r5lpet.jpg",
     duration: 600,
-    addedAt: "2024-09-01T00:00:00Z",
-    model: "Angel Gostosa"
+    addedAt: "2026-03-15T00:00:00Z",
+    model: "Coco Lovelock"
   },
   {
     id: "V5",
     title: "HER STEP",
-    categories: [],
+    categories: ["foreign"],
     tags: [],
-    src: "https://video.damplips.com/video7/665/34.mp4",
-    thumb: "",
+    src: "https://video.damplips.com/video5/323/15.mp4",
+    thumb: "https://files.catbox.moe/nrjlss.webp",
     duration: 600,
-    addedAt: "2024-05-29T00:00:00Z",
-    model: "Angel Gostosa"
+    addedAt: "2026-03-15T00:00:00Z",
+    model: "Eliza Ibarra"
   },
   {
     id: "V6",
     title: "HER STEP",
-    categories: [],
+    categories: ["foreign"],
     tags: [],
-    src: "https://video.damplips.com/video7/648/35.mp4",
+    src: "https://video.damplips.com/video5/323/15.mp4",
     thumb: "",
     duration: 600,
-    addedAt: "2023-11-06T00:00:00Z",
-    model: "Angel Gostosa"
+    addedAt: "2026-03-15T00:00:00Z",
+    model: "Emiri Momota"
   },
   {
     id: "V7",
     title: "HER STEP",
-    categories: [],
+    categories: ["foreign"],
     tags: [],
-    src: "https://video.damplips.com/video7/599/07.mp4",
+    src: "https://video.damplips.com/video5/323/15.mp4",
     thumb: "",
     duration: 600,
-    addedAt: "2022-09-23T00:00:00Z",
-    model: "Angel Gostosa"
+    addedAt: "2026-03-15T00:00:00Z",
+    model: "Gianna Dior"
   },
   {
     id: "V8",
     title: "HER STEP",
-    categories: [],
+    categories: ["foreign"],
     tags: [],
-    src: "https://video.damplips.com/video7/587/12.mp4",
+    src: "https://video.damplips.com/video5/323/15.mp4",
     thumb: "",
     duration: 600,
-    addedAt: "2022-06-29T00:00:00Z",
-    model: "Angel Gostosa"
+    addedAt: "2026-03-15T00:00:00Z",
+    model: "Jia Lissa"
   },
   {
     id: "V9",
     title: "HER STEP",
-    categories: [],
+    categories: ["foreign"],
     tags: [],
-    src: "https://video.damplips.com/video7/586/21.mp4",
+    src: "https://video.damplips.com/video5/323/15.mp4",
     thumb: "",
     duration: 600,
-    addedAt: "2022-06-22T00:00:00Z",
-    model: "Angel Gostosa"
+    addedAt: "2026-03-15T00:00:00Z",
+    model: "Katie Kush"
   },
   {
     id: "V10",
     title: "HER STEP",
-    categories: [],
+    categories: ["foreign"],
     tags: [],
-    src: "https://video.damplips.com/video7/581/17.mp4",
+    src: "https://video.damplips.com/video5/323/15.mp4",
     thumb: "",
     duration: 600,
-    addedAt: "2022-05-19T00:00:00Z",
-    model: "Angel Gostosa"
+    addedAt: "2026-03-15T00:00:00Z",
+    model: "Kylie Rocket"
   },
   {
     id: "V11",
     title: "HER STEP",
-    categories: [],
+    categories: ["foreign"],
     tags: [],
-    src: "https://video.damplips.com/video7/571/08.mp4",
+    src: "https://video.damplips.com/video5/323/15.mp4",
     thumb: "",
     duration: 600,
-    addedAt: "2022-03-01T00:00:00Z",
-    model: "Angel Gostosa"
+    addedAt: "2026-03-15T00:00:00Z",
+    model: "Lilly Bell"
   },
-
-  // ====================== AGATHA VEGA ======================
   {
     id: "V12",
     title: "HER STEP",
-    categories: [],
+    categories: ["foreign"],
     tags: [],
-    src: "https://video.damplips.com/video7/632/12.mp4",
+    src: "https://video.damplips.com/video5/323/15.mp4",
     thumb: "",
     duration: 600,
-    addedAt: "2023-06-16T00:00:00Z",
-    model: "Agatha Vega"
+    addedAt: "2026-03-15T00:00:00Z",
+    model: "Megan Murkovski"
   },
   {
     id: "V13",
     title: "HER STEP",
-    categories: [],
+    categories: ["foreign"],
     tags: [],
-    src: "https://video.damplips.com/video7/711/51.mp4",
-    thumb: "",
+    src: "https://video.damplips.com/video5/323/15.mp4",
+    thumb: "https://files.catbox.moe/mzrnqz.jpg",
     duration: 600,
-    addedAt: "2026-01-25T00:00:00Z",
-    model: "Agatha Vega"
+    addedAt: "2026-03-15T00:00:00Z",
+    model: "Rae Lil Black"
   },
   {
     id: "V14",
     title: "HER STEP",
-    categories: [],
+    categories: ["foreign"],
     tags: [],
-    src: "https://video.damplips.com/video7/687/20.mp4",
+    src: "https://video.damplips.com/video5/323/15.mp4",
     thumb: "",
     duration: 600,
-    addedAt: "2025-01-13T00:00:00Z",
-    model: "Agatha Vega"
+    addedAt: "2026-03-15T00:00:00Z",
+    model: "Rissa May"
   },
   {
     id: "V15",
     title: "HER STEP",
-    categories: [],
+    categories: ["foreign"],
     tags: [],
-    src: "https://video.damplips.com/video7/686/14.mp4",
+    src: "https://video.damplips.com/video5/323/15.mp4",
     thumb: "",
     duration: 600,
-    addedAt: "2025-01-04T00:00:00Z",
-    model: "Agatha Vega"
+    addedAt: "2026-03-15T00:00:00Z",
+    model: "Scarlit Scandal"
   },
   {
     id: "V16",
     title: "HER STEP",
-    categories: [],
+    categories: ["foreign"],
     tags: [],
-    src: "https://video.damplips.com/video7/680/13.mp4",
+    src: "https://video.damplips.com/video5/323/15.mp4",
     thumb: "",
     duration: 600,
-    addedAt: "2024-10-31T00:00:00Z",
-    model: "Agatha Vega"
+    addedAt: "2026-03-15T00:00:00Z",
+    model: "Violet Gems"
   },
   {
     id: "V17",
     title: "HER STEP",
-    categories: [],
+    categories: ["foreign"],
     tags: [],
-    src: "https://video.damplips.com/video7/667/35.mp4",
-    thumb: "",
+    src: "https://video.damplips.com/video5/323/15.mp4",
+    thumb: "https://files.catbox.moe/qvmvvw.jpg",
     duration: 600,
-    addedAt: "2024-06-19T00:00:00Z",
+    addedAt: "2026-03-15T00:00:00Z",
     model: "Agatha Vega"
   },
   {
     id: "V18",
     title: "HER STEP",
-    categories: [],
+    categories: ["foreign"],
     tags: [],
-    src: "https://video.damplips.com/video7/654/34.mp4",
+    src: "https://video.damplips.com/video5/323/15.mp4",
     thumb: "",
     duration: 600,
-    addedAt: "2024-01-30T00:00:00Z",
-    model: "Agatha Vega"
+    addedAt: "2026-03-15T00:00:00Z",
+    model: "Azul Hermosa"
   },
   {
     id: "V19",
     title: "HER STEP",
-    categories: [],
+    categories: ["foreign"],
     tags: [],
-    src: "https://video.damplips.com/video7/621/13.mp4",
+    src: "https://video.damplips.com/video5/323/15.mp4",
     thumb: "",
     duration: 600,
-    addedAt: "2023-03-19T00:00:00Z",
-    model: "Agatha Vega"
+    addedAt: "2026-03-15T00:00:00Z",
+    model: "Cherie DeVille"
   },
   {
     id: "V20",
     title: "HER STEP",
-    categories: [],
+    categories: ["foreign"],
     tags: [],
-    src: "https://video.damplips.com/video7/615/03.mp4",
+    src: "https://video.damplips.com/video5/323/15.mp4",
     thumb: "",
     duration: 600,
-    addedAt: "2023-01-23T00:00:00Z",
-    model: "Agatha Vega"
+    addedAt: "2026-03-15T00:00:00Z",
+    model: "Codi Vore"
   },
   {
     id: "V21",
     title: "HER STEP",
-    categories: [],
+    categories: ["foreign"],
     tags: [],
-    src: "https://video.damplips.com/video7/583/20.mp4",
+    src: "https://video.damplips.com/video5/323/15.mp4",
     thumb: "",
     duration: 600,
-    addedAt: "2022-06-03T00:00:00Z",
-    model: "Agatha Vega"
+    addedAt: "2026-03-15T00:00:00Z",
+    model: "Elsa Jean"
   },
   {
     id: "V22",
     title: "HER STEP",
-    categories: [],
+    categories: ["foreign"],
     tags: [],
-    src: "https://video.damplips.com/video7/530/07.mp4",
+    src: "https://video.damplips.com/video5/323/15.mp4",
     thumb: "",
     duration: 600,
-    addedAt: "2021-05-01T00:00:00Z",
-    model: "Agatha Vega"
+    addedAt: "2026-03-15T00:00:00Z",
+    model: "Eva Elfie"
   },
   {
     id: "V23",
     title: "HER STEP",
-    categories: [],
+    categories: ["foreign"],
     tags: [],
-    src: "https://video.damplips.com/video7/527/10.mp4",
+    src: "https://video.damplips.com/video5/323/15.mp4",
     thumb: "",
     duration: 600,
-    addedAt: "2021-04-11T00:00:00Z",
-    model: "Agatha Vega"
+    addedAt: "2026-03-15T00:00:00Z",
+    model: "Hailey Rose"
   },
-
-  // ====================== ARIA LEE ======================
   {
     id: "V24",
     title: "HER STEP",
-    categories: [],
+    categories: ["foreign"],
     tags: [],
-    src: "https://video.damplips.com/video7/628/05.mp4",
+    src: "https://video.damplips.com/video5/323/15.mp4",
     thumb: "",
     duration: 600,
-    addedAt: "2023-05-17T00:00:00Z",
-    model: "Aria Lee"
+    addedAt: "2026-03-15T00:00:00Z",
+    model: "Julia James"
   },
   {
     id: "V25",
     title: "HER STEP",
-    categories: [],
+    categories: ["foreign"],
     tags: [],
-    src: "https://video.damplips.com/video7/618/06.mp4",
+    src: "https://video.damplips.com/video5/323/15.mp4",
     thumb: "",
     duration: 600,
-    addedAt: "2023-02-18T00:00:00Z",
-    model: "Aria Lee"
+    addedAt: "2026-03-15T00:00:00Z",
+    model: "Kendra Spade"
   },
   {
     id: "V26",
     title: "HER STEP",
-    categories: [],
+    categories: ["foreign"],
     tags: [],
-    src: "https://video.damplips.com/video7/613/02.mp4",
+    src: "https://video.damplips.com/video5/323/15.mp4",
     thumb: "",
     duration: 600,
-    addedAt: "2023-01-11T00:00:00Z",
-    model: "Aria Lee"
+    addedAt: "2026-03-15T00:00:00Z",
+    model: "Lana Rhoades"
   },
   {
     id: "V27",
     title: "HER STEP",
-    categories: [],
+    categories: ["foreign"],
     tags: [],
-    src: "https://video.damplips.com/video7/601/12.mp4",
+    src: "https://video.damplips.com/video5/323/15.mp4",
     thumb: "",
     duration: 600,
-    addedAt: "2022-10-04T00:00:00Z",
-    model: "Aria Lee"
+    addedAt: "2026-03-15T00:00:00Z",
+    model: "Liz Jordan"
   },
   {
     id: "V28",
     title: "HER STEP",
-    categories: [],
+    categories: ["foreign"],
     tags: [],
-    src: "https://video.damplips.com/video7/515/10.mp4",
+    src: "https://video.damplips.com/video5/323/15.mp4",
     thumb: "",
     duration: 600,
-    addedAt: "2021-01-17T00:00:00Z",
-    model: "Aria Lee"
+    addedAt: "2026-03-15T00:00:00Z",
+    model: "Melanie Marie"
   },
   {
     id: "V29",
     title: "HER STEP",
-    categories: [],
+    categories: ["foreign"],
     tags: [],
-    src: "https://video.damplips.com/video7/502/10.mp4",
+    src: "https://video.damplips.com/video5/323/15.mp4",
     thumb: "",
     duration: 600,
-    addedAt: "2020-10-18T00:00:00Z",
-    model: "Aria Lee"
+    addedAt: "2026-03-15T00:00:00Z",
+    model: "Rikako Katayama"
   },
   {
     id: "V30",
     title: "HER STEP",
-    categories: [],
+    categories: ["foreign"],
     tags: [],
-    src: "https://video.damplips.com/video6/463/18.mp4",
+    src: "https://video.damplips.com/video5/323/15.mp4",
     thumb: "",
     duration: 600,
-    addedAt: "2020-01-10T00:00:00Z",
-    model: "Aria Lee"
+    addedAt: "2026-03-15T00:00:00Z",
+    model: "Ryan Reid"
   },
   {
     id: "V31",
     title: "HER STEP",
-    categories: [],
+    categories: ["foreign"],
     tags: [],
-    src: "https://video.damplips.com/video6/460/14.mp4",
+    src: "https://video.damplips.com/video5/323/15.mp4",
     thumb: "",
     duration: 600,
-    addedAt: "2019-12-13T00:00:00Z",
-    model: "Aria Lee"
+    addedAt: "2026-03-15T00:00:00Z",
+    model: "Sonya Blaze"
   },
   {
     id: "V32",
     title: "HER STEP",
-    categories: [],
+    categories: ["foreign"],
     tags: [],
-    src: "https://video.damplips.com/video6/456/16.mp4",
+    src: "https://video.damplips.com/video5/323/15.mp4",
     thumb: "",
     duration: 600,
-    addedAt: "2019-11-15T00:00:00Z",
-    model: "Aria Lee"
+    addedAt: "2026-03-15T00:00:00Z",
+    model: "Violet Myers"
   },
   {
     id: "V33",
     title: "HER STEP",
-    categories: [],
+    categories: ["foreign"],
     tags: [],
-    src: "https://video.damplips.com/video6/451/new/19.mp4",
+    src: "https://video.damplips.com/video5/323/15.mp4",
     thumb: "",
     duration: 600,
-    addedAt: "2019-09-29T00:00:00Z",
-    model: "Aria Lee"
+    addedAt: "2026-03-15T00:00:00Z",
+    model: "Angel Gostosa"
   },
   {
     id: "V34",
     title: "HER STEP",
-    categories: [],
+    categories: ["foreign"],
     tags: [],
-    src: "https://video.damplips.com/video6/444/05.mp4",
+    src: "https://video.damplips.com/video5/323/15.mp4",
     thumb: "",
     duration: 600,
-    addedAt: "2019-08-11T00:00:00Z",
-    model: "Aria Lee"
+    addedAt: "2026-03-15T00:00:00Z",
+    model: "Bailey Base"
   },
   {
     id: "V35",
     title: "HER STEP",
-    categories: [],
+    categories: ["foreign"],
     tags: [],
-    src: "https://video.damplips.com/video6/426/12.mp4",
+    src: "https://video.damplips.com/video5/323/15.mp4",
     thumb: "",
     duration: 600,
-    addedAt: "2019-04-16T00:00:00Z",
-    model: "Aria Lee"
+    addedAt: "2026-03-15T00:00:00Z",
+    model: "Chloe Surreal"
   },
   {
     id: "V36",
     title: "HER STEP",
-    categories: [],
+    categories: ["foreign"],
     tags: [],
-    src: "https://video.damplips.com/video6/418/06.mp4",
+    src: "https://video.damplips.com/video5/323/15.mp4",
     thumb: "",
     duration: 600,
-    addedAt: "2019-02-19T00:00:00Z",
-    model: "Aria Lee"
+    addedAt: "2026-03-15T00:00:00Z",
+    model: "Demi Hawks"
   },
   {
     id: "V37",
     title: "HER STEP",
-    categories: [],
+    categories: ["foreign"],
     tags: [],
-    src: "https://video.damplips.com/video6/413/04.mp4",
+    src: "https://video.damplips.com/video5/323/15.mp4",
     thumb: "",
     duration: 600,
-    addedAt: "2019-01-06T00:00:00Z",
-    model: "Aria Lee"
+    addedAt: "2026-03-15T00:00:00Z",
+    model: "Emily Willis"
   },
   {
     id: "V38",
     title: "HER STEP",
-    categories: [],
+    categories: ["foreign"],
     tags: [],
-    src: "https://video.damplips.com/video6/398/27.mp4",
+    src: "https://video.damplips.com/video5/323/15.mp4",
     thumb: "",
     duration: 600,
-    addedAt: "2018-09-23T00:00:00Z",
-    model: "Aria Lee"
+    addedAt: "2026-03-15T00:00:00Z",
+    model: "Eve Sweet"
   },
   {
     id: "V39",
     title: "HER STEP",
-    categories: [],
+    categories: ["foreign"],
     tags: [],
-    src: "https://video.damplips.com/video6/397/02.mp4",
+    src: "https://video.damplips.com/video5/323/15.mp4",
     thumb: "",
     duration: 600,
-    addedAt: "2018-09-16T00:00:00Z",
-    model: "Aria Lee"
+    addedAt: "2026-03-15T00:00:00Z",
+    model: "Hazel Moore"
   },
   {
     id: "V40",
     title: "HER STEP",
-    categories: [],
+    categories: ["foreign"],
     tags: [],
-    src: "https://video.damplips.com/video6/395/07.mp4",
+    src: "https://video.damplips.com/video5/323/15.mp4",
     thumb: "",
     duration: 600,
-    addedAt: "2018-09-00T00:00:00Z",
-    model: "Aria Lee"
+    addedAt: "2026-03-15T00:00:00Z",
+    model: "Katana Kombat"
+  },
+  {
+    id: "V41",
+    title: "HER STEP",
+    categories: ["foreign"],
+    tags: [],
+    src: "https://video.damplips.com/video5/323/15.mp4",
+    thumb: "",
+    duration: 600,
+    addedAt: "2026-03-15T00:00:00Z",
+    model: "Kimmy"
+  },
+  {
+    id: "V42",
+    title: "HER STEP",
+    categories: ["foreign"],
+    tags: [],
+    src: "https://video.damplips.com/video5/323/15.mp4",
+    thumb: "",
+    duration: 600,
+    addedAt: "2026-03-15T00:00:00Z",
+    model: "Lexi Lore"
+  },
+  {
+    id: "V43",
+    title: "HER STEP",
+    categories: ["foreign"],
+    tags: [],
+    src: "https://video.damplips.com/video5/323/15.mp4",
+    thumb: "",
+    duration: 600,
+    addedAt: "2026-03-15T00:00:00Z",
+    model: "Lulu Chu"
+  },
+  {
+    id: "V44",
+    title: "HER STEP",
+    categories: ["foreign"],
+    tags: [],
+    src: "https://video.damplips.com/video5/323/15.mp4",
+    thumb: "",
+    duration: 600,
+    addedAt: "2026-03-15T00:00:00Z",
+    model: "Molly Little"
+  },
+  {
+    id: "V45",
+    title: "HER STEP",
+    categories: ["foreign"],
+    tags: [],
+    src: "https://video.damplips.com/video5/323/15.mp4",
+    thumb: "",
+    duration: 600,
+    addedAt: "2026-03-15T00:00:00Z",
+    model: "Riley Reid"
+  },
+  {
+    id: "V46",
+    title: "HER STEP",
+    categories: ["foreign"],
+    tags: [],
+    src: "https://video.damplips.com/video5/323/15.mp4",
+    thumb: "",
+    duration: 600,
+    addedAt: "2026-03-15T00:00:00Z",
+    model: "Scarlett Alexis"
+  },
+  {
+    id: "V47",
+    title: "HER STEP",
+    categories: ["foreign"],
+    tags: [],
+    src: "https://video.damplips.com/video5/323/15.mp4",
+    thumb: "",
+    duration: 600,
+    addedAt: "2026-03-15T00:00:00Z",
+    model: "Vanna Bardot"
+  },
+  {
+    id: "V48",
+    title: "HER STEP",
+    categories: ["foreign"],
+    tags: [],
+    src: "https://video.damplips.com/video5/323/15.mp4",
+    thumb: "",
+    duration: 600,
+    addedAt: "2026-03-15T00:00:00Z",
+    model: "XxLayna Marie"
   }
-
-  // All remaining videos from other models (Adria Rae, Azul Hermosa, Bailey Base, Chanel Camryn, Cherie Deville, Chloe Surreal, Codi Vore, Demi Hawks, Eliza Ibarra, Elsa Jean, Emily Willis, Emiri Momota, Eva Elfie, Eve Sweet, Gianna Dior, Hailey Rose, Hazel Moore, Jia Lissa, Julia James, Ryan Reid, Scarlit Scandal, Violet Myers, XxLayna Marie, etc.) follow the exact same clean pattern.
 ];
+
+// ==================== HELPER ARRAYS ====================
 
 export const modelCodes: string[] = [
   "Adria Rae", "Agatha Vega", "Angel Gostosa", "Aria Lee", "Azul Hermosa",
