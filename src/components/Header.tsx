@@ -12,14 +12,14 @@ const Header = ({ searchQuery, onSearchChange }: HeaderProps) => {
       <div className="container mx-auto px-4 py-4">
         {/* Top row */}
         <div className="flex items-center justify-between mb-4">
-          <div>
+          <Link to="/" className="block">
             <h1 className="text-2xl font-bold font-display text-foreground tracking-wide">
               Exclusive<span className="text-primary">Clips4</span>
             </h1>
             <p className="text-xs text-muted-foreground tracking-widest uppercase mt-1">
               Premium Fashion • Lifestyle • Glamour Videos
             </p>
-          </div>
+          </Link>
           <nav className="hidden md:flex items-center gap-8">
             <Link to="/" className="text-sm text-muted-foreground hover:text-primary transition-colors font-medium tracking-wide">
               VIDEOS
