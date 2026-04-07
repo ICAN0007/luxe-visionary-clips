@@ -7,7 +7,7 @@ import { videos, modelCodes } from "@/data/videos";
 
 const MODELS_PER_PAGE = 18;
 
-const Models = () => {
+const Models = React.forwardRef<HTMLDivElement>((_, ref) => {
   const [searchQuery, setSearchQuery] = useState("");
   const [modelSearch, setModelSearch] = useState("");
   const [page, setPage] = useState(1);
