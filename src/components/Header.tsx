@@ -1,3 +1,4 @@
+import React from "react";
 import { Search, Monitor } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -6,9 +7,9 @@ interface HeaderProps {
   onSearchChange: (q: string) => void;
 }
 
-const Header = ({ searchQuery, onSearchChange }: HeaderProps) => {
+const Header = React.forwardRef<HTMLElement, HeaderProps>(({ searchQuery, onSearchChange }, ref) => {
   return (
-    <header className="gradient-bg border-b border-border">
+    <header ref={ref} className="gradient-bg border-b border-border">
       <div className="container mx-auto px-4 py-4">
         {/* Top row */}
         <div className="flex items-center justify-between mb-4">
@@ -50,6 +51,8 @@ const Header = ({ searchQuery, onSearchChange }: HeaderProps) => {
       </div>
     </header>
   );
-};
+});
+
+Header.displayName = "Header";
 
 export default Header;

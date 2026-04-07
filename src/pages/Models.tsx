@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import React, { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { Search, User } from "lucide-react";
 import Header from "@/components/Header";
@@ -7,7 +7,7 @@ import { videos, modelCodes } from "@/data/videos";
 
 const MODELS_PER_PAGE = 18;
 
-const Models = () => {
+const Models = React.forwardRef<HTMLDivElement>((_, ref) => {
   const [searchQuery, setSearchQuery] = useState("");
   const [modelSearch, setModelSearch] = useState("");
   const [page, setPage] = useState(1);
@@ -31,7 +31,7 @@ const Models = () => {
   const paginated = filtered.slice((page - 1) * MODELS_PER_PAGE, page * MODELS_PER_PAGE);
 
   return (
-    <div className="min-h-screen gradient-bg">
+    <div ref={ref} className="min-h-screen gradient-bg">
       <Header searchQuery={searchQuery} onSearchChange={setSearchQuery} />
 
       <main className="container mx-auto px-4 py-8">
@@ -133,6 +133,8 @@ const Models = () => {
       <Footer />
     </div>
   );
-};
+});
+
+Models.displayName = "Models";
 
 export default Models;
