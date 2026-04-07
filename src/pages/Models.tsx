@@ -133,6 +133,8 @@ const Models = React.forwardRef<HTMLDivElement>((_, ref) => {
       <Footer />
     </div>
   );
-};
+});
+
+Models.displayName = "Models";
 
 export default Models;
