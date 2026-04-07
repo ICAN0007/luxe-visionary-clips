@@ -31,7 +31,7 @@ const Models = React.forwardRef<HTMLDivElement>((_, ref) => {
   const paginated = filtered.slice((page - 1) * MODELS_PER_PAGE, page * MODELS_PER_PAGE);
 
   return (
-    <div className="min-h-screen gradient-bg">
+    <div ref={ref} className="min-h-screen gradient-bg">
       <Header searchQuery={searchQuery} onSearchChange={setSearchQuery} />
 
       <main className="container mx-auto px-4 py-8">
