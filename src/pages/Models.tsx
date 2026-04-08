@@ -29,6 +29,24 @@ const Models = React.forwardRef<HTMLDivElement>((_, ref) => {
     );
   }, [modelsWithData, modelSearch]);
 
+  const suggestions = useMemo(() => {
+    if (!modelSearch.trim()) return [];
+    return modelsWithData.filter((m) =>
+      m.code.toLowerCase().includes(modelSearch.toLowerCase())
+    ).slice(0, 8);
+  }, [modelsWithData, modelSearch]);
+
+  // Close suggestions on outside click
+  React.useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      if (searchRef.current && !searchRef.current.contains(e.target as Node)) {
+        setShowSuggestions(false);
+      }
+    };
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
+  }, []);
+
   const totalPages = Math.ceil(filtered.length / MODELS_PER_PAGE);
   const paginated = filtered.slice((page - 1) * MODELS_PER_PAGE, page * MODELS_PER_PAGE);
 
