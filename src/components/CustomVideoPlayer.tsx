@@ -181,8 +181,26 @@ const CustomVideoPlayer = ({ src, poster, autoPlay = true }: CustomVideoPlayerPr
         onError={() => setVideoError(true)}
       />
 
+      {/* Error state */}
+      {videoError && (
+        <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/80 text-white z-10">
+          <p className="text-lg font-semibold mb-2">Video failed to load</p>
+          <p className="text-sm text-white/60 mb-4">The video source may be unavailable</p>
+          <button
+            onClick={() => {
+              setVideoError(false);
+              const v = videoRef.current;
+              if (v) { v.load(); v.play().catch(() => {}); }
+            }}
+            className="px-4 py-2 rounded-lg accent-gradient text-primary-foreground text-sm font-medium hover:opacity-90"
+          >
+            Retry
+          </button>
+        </div>
+      )}
+
       {/* Big center play button when paused */}
-      {!playing && (
+      {!playing && !videoError && (
         <button
           onClick={togglePlay}
           className="absolute inset-0 flex items-center justify-center bg-black/30 transition-opacity duration-300"
