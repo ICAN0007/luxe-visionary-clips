@@ -37,20 +37,25 @@ const Sidebar = ({ activeModel, onModelClick, activeCategory, onCategoryClick }:
       {/* Models */}
       <div className="card-gradient rounded-xl p-4 border border-border">
         <h3 className="text-lg font-display font-bold text-foreground mb-4 tracking-wide">MODELS</h3>
-        <div className="flex flex-wrap gap-2">
-          {modelCodes.map((code, i) => (
-            <button
-              key={code + i}
-              onClick={() => onModelClick?.(code)}
-              className={`px-3 py-1 text-xs rounded transition-colors ${
-                activeModel === code
-                  ? "bg-primary text-primary-foreground"
-                  : "bg-secondary text-secondary-foreground hover:bg-primary hover:text-primary-foreground"
-              }`}
-            >
-              {code}
-            </button>
-          ))}
+        <div className="space-y-2 max-h-[500px] overflow-y-auto pr-2">
+          {modelCodes.map((code, i) => {
+            const count = videos.filter((v) => v.model === code).length;
+            return (
+              <button
+                key={code + i}
+                onClick={() => onModelClick?.(code)}
+                className={`flex items-center gap-2 text-sm transition-colors py-1 w-full text-left ${
+                  activeModel === code
+                    ? "text-foreground font-semibold"
+                    : "text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                <span className="w-2 h-2 rounded-full bg-primary flex-shrink-0" />
+                <span className="text-primary font-medium">{count}</span>
+                <span>{code}</span>
+              </button>
+            );
+          })}
         </div>
       </div>
 
