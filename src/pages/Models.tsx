@@ -11,6 +11,8 @@ const Models = React.forwardRef<HTMLDivElement>((_, ref) => {
   const [searchQuery, setSearchQuery] = useState("");
   const [modelSearch, setModelSearch] = useState("");
   const [page, setPage] = useState(1);
+  const [showSuggestions, setShowSuggestions] = useState(false);
+  const searchRef = React.useRef<HTMLDivElement>(null);
 
   const modelsWithData = useMemo(() => {
     return modelCodes.map((code) => {
@@ -27,6 +29,24 @@ const Models = React.forwardRef<HTMLDivElement>((_, ref) => {
     );
   }, [modelsWithData, modelSearch]);
 
+  const suggestions = useMemo(() => {
+    if (!modelSearch.trim()) return [];
+    return modelsWithData.filter((m) =>
+      m.code.toLowerCase().includes(modelSearch.toLowerCase())
+    ).slice(0, 8);
+  }, [modelsWithData, modelSearch]);
+
+  // Close suggestions on outside click
+  React.useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      if (searchRef.current && !searchRef.current.contains(e.target as Node)) {
+        setShowSuggestions(false);
+      }
+    };
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
+  }, []);
+
   const totalPages = Math.ceil(filtered.length / MODELS_PER_PAGE);
   const paginated = filtered.slice((page - 1) * MODELS_PER_PAGE, page * MODELS_PER_PAGE);
 
@@ -42,15 +62,38 @@ const Models = React.forwardRef<HTMLDivElement>((_, ref) => {
               {filtered.length} model{filtered.length !== 1 ? "s" : ""} available
             </p>
           </div>
-          <div className="relative w-full sm:w-72">
+          <div className="relative w-full sm:w-72" ref={searchRef}>
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
             <input
               type="text"
               placeholder="Search models..."
               value={modelSearch}
-              onChange={(e) => { setModelSearch(e.target.value); setPage(1); }}
+              onChange={(e) => { setModelSearch(e.target.value); setPage(1); setShowSuggestions(true); }}
+              onFocus={() => modelSearch.trim() && setShowSuggestions(true)}
               className="w-full bg-secondary text-foreground placeholder:text-muted-foreground rounded-lg py-2.5 pl-10 pr-4 text-sm border border-border focus:border-primary focus:outline-none transition-colors"
             />
+            {showSuggestions && suggestions.length > 0 && (
+              <div className="absolute z-50 top-full mt-1 w-full bg-secondary border border-border rounded-lg shadow-lg overflow-hidden">
+                {suggestions.map((m) => (
+                  <Link
+                    key={m.code}
+                    to={`/model/${encodeURIComponent(m.code)}`}
+                    onClick={() => setShowSuggestions(false)}
+                    className="flex items-center gap-3 px-3 py-2.5 hover:bg-primary/10 transition-colors"
+                  >
+                    {m.thumb ? (
+                      <img src={m.thumb} alt={m.code} className="w-8 h-8 rounded-full object-cover flex-shrink-0" />
+                    ) : (
+                      <div className="w-8 h-8 rounded-full bg-muted flex items-center justify-center flex-shrink-0">
+                        <User className="w-4 h-4 text-muted-foreground" />
+                      </div>
+                    )}
+                    <span className="text-sm text-foreground truncate">{m.code}</span>
+                    <span className="text-xs text-muted-foreground ml-auto">{m.videoCount} videos</span>
+                  </Link>
+                ))}
+              </div>
+            )}
           </div>
         </div>
 
