@@ -38,7 +38,6 @@ const CustomVideoPlayer = ({ src, poster, autoPlay = true }: CustomVideoPlayerPr
   const [buffered, setBuffered] = useState(0);
   const [hoverTime, setHoverTime] = useState<number | null>(null);
   const [hoverX, setHoverX] = useState(0);
-  const [videoError, setVideoError] = useState(false);
 
   const resetIdleTimer = useCallback(() => {
     setShowControls(true);
@@ -165,7 +164,8 @@ const CustomVideoPlayer = ({ src, poster, autoPlay = true }: CustomVideoPlayerPr
           if (v) {
             setDuration(v.duration);
             if (autoPlay) {
-              v.play().then(() => setPlaying(true)).catch(() => {});
+              v.play().catch(() => {});
+              setPlaying(true);
             }
           }
         }}
@@ -178,132 +178,60 @@ const CustomVideoPlayer = ({ src, poster, autoPlay = true }: CustomVideoPlayerPr
         onPlay={() => setPlaying(true)}
         onPause={() => setPlaying(false)}
         onEnded={() => setPlaying(false)}
-        onError={() => setVideoError(true)}
       />
 
-      {/* Error state */}
-      {videoError && (
-        <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/80 text-white z-10">
-          <p className="text-lg font-semibold mb-2">Video failed to load</p>
-          <p className="text-sm text-white/60 mb-4">The video source may be unavailable</p>
-          <button
-            onClick={() => {
-              setVideoError(false);
-              const v = videoRef.current;
-              if (v) { v.load(); v.play().catch(() => {}); }
-            }}
-            className="px-4 py-2 rounded-lg accent-gradient text-primary-foreground text-sm font-medium hover:opacity-90"
-          >
-            Retry
-          </button>
-        </div>
-      )}
-
-      {/* Big center play button when paused */}
-      {!playing && !videoError && (
+      {!playing && (
         <button
           onClick={togglePlay}
-          className="absolute inset-0 flex items-center justify-center bg-black/30 transition-opacity duration-300"
+          className="absolute inset-0 flex items-center justify-center bg-black/30"
         >
-          <div className="w-16 h-16 rounded-full accent-gradient flex items-center justify-center shadow-lg transition-transform duration-300 hover:scale-110">
-            <Play className="w-7 h-7 text-primary-foreground ml-1" fill="currentColor" />
+          <div className="w-16 h-16 rounded-full flex items-center justify-center bg-white/20">
+            <Play className="w-7 h-7 text-white ml-1" fill="currentColor" />
           </div>
         </button>
       )}
 
-      {/* Controls overlay */}
       <div
         className="absolute bottom-0 left-0 right-0 px-4 pb-3 pt-12 transition-opacity duration-300"
         style={{
           background: "linear-gradient(transparent, rgba(0,0,0,0.8))",
           opacity: showControls ? 1 : 0,
-          pointerEvents: showControls ? "auto" : "none",
         }}
       >
-        {/* Progress bar */}
         <div
           ref={progressRef}
-          className="relative w-full h-1 group/bar cursor-pointer mb-3 rounded-full"
+          className="relative w-full h-1 cursor-pointer mb-3 bg-white/20 rounded"
           onMouseDown={onProgressMouseDown}
           onMouseMove={onProgressHover}
           onMouseLeave={() => setHoverTime(null)}
         >
-          {/* Track bg */}
-          <div className="absolute inset-0 rounded-full bg-white/20" />
-          {/* Buffered */}
           <div
-            className="absolute inset-y-0 left-0 rounded-full bg-white/30 transition-[width] duration-200"
+            className="absolute left-0 top-0 h-1 bg-white/40"
             style={{ width: `${buffered}%` }}
           />
-          {/* Progress fill */}
           <div
-            className="absolute inset-y-0 left-0 rounded-full accent-gradient transition-[width] duration-100"
+            className="absolute left-0 top-0 h-1 bg-orange-500"
             style={{ width: `${progress}%` }}
           />
-          {/* Thumb */}
-          <div
-            className="absolute top-1/2 -translate-y-1/2 w-3.5 h-3.5 rounded-full bg-primary shadow-md transition-transform duration-150 scale-0 group-hover/bar:scale-100"
-            style={{ left: `${progress}%`, transform: `translate(-50%, -50%)` }}
-          />
-          {/* Hover tooltip */}
-          {hoverTime !== null && (
-            <div
-              className="absolute -top-8 px-2 py-0.5 rounded bg-black/80 text-white text-xs pointer-events-none"
-              style={{ left: `${hoverX}px`, transform: "translateX(-50%)" }}
-            >
-              {formatTime(hoverTime)}
-            </div>
-          )}
-          {/* Expand hit area */}
-          <div className="absolute -inset-y-2 inset-x-0" />
         </div>
 
-        {/* Bottom controls */}
         <div className="flex items-center gap-3">
-          <button
-            onClick={togglePlay}
-            className="text-white hover:text-primary transition-colors duration-200"
-          >
-            {playing ? <Pause className="w-5 h-5" /> : <Play className="w-5 h-5" fill="currentColor" />}
+          <button onClick={togglePlay}>
+            {playing ? <Pause /> : <Play />}
           </button>
 
-          {/* Volume */}
-          <div className="flex items-center gap-1.5 group/vol">
-            <button
-              onClick={toggleMute}
-              className="text-white hover:text-primary transition-colors duration-200"
-            >
-              {muted || volume === 0 ? (
-                <VolumeX className="w-5 h-5" />
-              ) : (
-                <Volume2 className="w-5 h-5" />
-              )}
-            </button>
-            <input
-              type="range"
-              min="0"
-              max="1"
-              step="0.01"
-              value={muted ? 0 : volume}
-              onChange={handleVolumeChange}
-              className="w-0 group-hover/vol:w-20 transition-all duration-300 accent-primary h-1 cursor-pointer opacity-0 group-hover/vol:opacity-100"
-              style={{ accentColor: "hsl(16 100% 50%)" }}
-            />
-          </div>
+          <button onClick={toggleMute}>
+            {muted ? <VolumeX /> : <Volume2 />}
+          </button>
 
-          {/* Time */}
-          <span className="text-white/80 text-xs font-mono ml-1">
+          <span className="text-white text-xs">
             {formatTime(currentTime)} / {formatTime(duration)}
           </span>
 
           <div className="flex-1" />
 
-          {/* Fullscreen */}
-          <button
-            onClick={toggleFullscreen}
-            className="text-white hover:text-primary transition-colors duration-200"
-          >
-            {fullscreen ? <Minimize className="w-5 h-5" /> : <Maximize className="w-5 h-5" />}
+          <button onClick={toggleFullscreen}>
+            {fullscreen ? <Minimize /> : <Maximize />}
           </button>
         </div>
       </div>
