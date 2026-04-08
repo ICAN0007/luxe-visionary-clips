@@ -11,6 +11,8 @@ const Models = React.forwardRef<HTMLDivElement>((_, ref) => {
   const [searchQuery, setSearchQuery] = useState("");
   const [modelSearch, setModelSearch] = useState("");
   const [page, setPage] = useState(1);
+  const [showSuggestions, setShowSuggestions] = useState(false);
+  const searchRef = React.useRef<HTMLDivElement>(null);
 
   const modelsWithData = useMemo(() => {
     return modelCodes.map((code) => {
