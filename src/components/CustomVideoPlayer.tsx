@@ -38,6 +38,7 @@ const CustomVideoPlayer = ({ src, poster, autoPlay = true }: CustomVideoPlayerPr
   const [buffered, setBuffered] = useState(0);
   const [hoverTime, setHoverTime] = useState<number | null>(null);
   const [hoverX, setHoverX] = useState(0);
+  const [videoError, setVideoError] = useState(false);
 
   const resetIdleTimer = useCallback(() => {
     setShowControls(true);
@@ -177,6 +178,7 @@ const CustomVideoPlayer = ({ src, poster, autoPlay = true }: CustomVideoPlayerPr
         onPlay={() => setPlaying(true)}
         onPause={() => setPlaying(false)}
         onEnded={() => setPlaying(false)}
+        onError={() => setVideoError(true)}
       />
 
       {/* Big center play button when paused */}
