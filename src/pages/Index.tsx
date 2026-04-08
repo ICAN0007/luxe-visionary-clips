@@ -7,6 +7,7 @@ import VideoGrid from "@/components/VideoGrid";
 import Sidebar from "@/components/Sidebar";
 import Footer from "@/components/Footer";
 import { videos } from "@/data/videos";
+import { Banner728x90, Banner320x50, SmartlinkBanner } from "@/components/ui/AdScripts";
 
 const Index = () => {
   const [isVerified, setIsVerified] = useState(false);
@@ -86,6 +87,14 @@ const Index = () => {
   return (
     <div className="min-h-screen gradient-bg">
       <Header searchQuery={searchQuery} onSearchChange={(q) => { setSearchQuery(q); setCurrentPage(1); }} />
+
+      {/* Top Ad Banner */}
+      <div className="hidden md:block container mx-auto px-4 mt-4">
+        <Banner728x90 />
+      </div>
+      <div className="block md:hidden container mx-auto px-4 mt-4">
+        <Banner320x50 />
+      </div>
 
       <main className="container mx-auto px-4 py-6">
         <FilterBar activeFilter={activeFilter} onFilterChange={handleFilterChange} />
@@ -199,6 +208,9 @@ const Index = () => {
           </div>
         </div>
       </main>
+
+      {/* Bottom Smartlink Banner */}
+      <SmartlinkBanner />
 
       <Footer />
     </div>

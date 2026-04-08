@@ -3,6 +3,7 @@ import { useParams, useNavigate, Link } from "react-router-dom";
 import { ArrowLeft, Heart, Send, Trash2, Play } from "lucide-react";
 import CustomVideoPlayer from "@/components/CustomVideoPlayer";
 import { videos, type Video } from "@/data/videos";
+import { Banner300x250, Banner320x50, SmartlinkBanner } from "@/components/ui/AdScripts";
 
 interface Comment {
   id: string;
@@ -311,6 +312,14 @@ const VideoPage = () => {
 
           {/* Recommended Videos Sidebar */}
           <div className="w-full lg:w-80 flex-shrink-0">
+            {/* Sidebar Ad */}
+            <div className="hidden lg:block mb-4">
+              <Banner300x250 />
+            </div>
+            <div className="block lg:hidden mb-4">
+              <Banner320x50 />
+            </div>
+
             <h3 className="text-lg font-display font-bold text-foreground mb-4">
               Recommended
             </h3>
