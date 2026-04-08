@@ -37,25 +37,21 @@ const Sidebar = ({ activeModel, onModelClick, activeCategory, onCategoryClick }:
       {/* Models */}
       <div className="card-gradient rounded-xl p-4 border border-border">
         <h3 className="text-lg font-display font-bold text-foreground mb-4 tracking-wide">MODELS</h3>
-        <div className="space-y-2 max-h-[500px] overflow-y-auto pr-2">
-          {modelCodes.map((code, i) => {
-            const count = videos.filter((v) => v.model === code).length;
-            return (
-              <button
-                key={code + i}
-                onClick={() => onModelClick?.(code)}
-                className={`flex items-center gap-2 text-sm transition-colors py-1 w-full text-left ${
-                  activeModel === code
-                    ? "text-foreground font-semibold"
-                    : "text-muted-foreground hover:text-foreground"
-                }`}
-              >
-                <span className="w-2 h-2 rounded-full bg-primary flex-shrink-0" />
-                <span className="text-primary font-medium">{count}</span>
-                <span>{code}</span>
-              </button>
-            );
-          })}
+        <div className="space-y-1 max-h-[500px] overflow-y-auto pr-2 custom-scrollbar">
+          {modelCodes.map((code, i) => (
+            <button
+              key={code + i}
+              onClick={() => onModelClick?.(code)}
+              className={`flex items-center gap-2.5 text-sm transition-all duration-200 py-1.5 px-2 w-full text-left rounded-md ${
+                activeModel === code
+                  ? "text-primary bg-primary/10 font-medium"
+                  : "text-muted-foreground hover:text-foreground hover:bg-secondary/60"
+              }`}
+            >
+              <Play className="w-3 h-3 flex-shrink-0 opacity-60" />
+              <span className="truncate">{code}</span>
+            </button>
+          ))}
         </div>
       </div>
 
